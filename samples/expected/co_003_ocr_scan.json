@@ -1,0 +1,44 @@
+{
+  "change_order_number": "014",
+  "project_name": "Lakeview Elementary School Addition",
+  "project_number": "LV-2291",
+  "owner": "Lakeview Unified School District",
+  "contractor": "Northgate Construction Services",
+  "date_issued": "2025-06-09",
+  "description": "Install additional fire-rated door assemblies at corridor C2 as required by the Fire Marshal during framing inspection.",
+  "reason": "regulatory",
+  "status": "approved",
+  "subtotal": 7338.0,
+  "markup": 880.56,
+  "tax": null,
+  "total_change_amount": 8218.56,
+  "original_contract_sum": 6400000.0,
+  "prior_change_orders_total": 212750.0,
+  "contract_sum_before": 6612750.0,
+  "new_contract_sum": 6620968.56,
+  "schedule_impact_days": 4,
+  "new_completion_date": null,
+  "line_items": [
+    {
+      "description": "90-min rated HM door & frame",
+      "quantity": 2,
+      "unit": "EA",
+      "unit_price": 2100.0,
+      "amount": 4200.0
+    },
+    {
+      "description": "Door hardware sets, rated",
+      "quantity": 2,
+      "unit": "EA",
+      "unit_price": 865.0,
+      "amount": 1730.0
+    },
+    {
+      "description": "Installation labor",
+      "quantity": 16,
+      "unit": "HR",
+      "unit_price": 88.0,
+      "amount": 1408.0
+    }
+  ]
+}

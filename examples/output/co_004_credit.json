@@ -1,0 +1,476 @@
+{
+  "document": "co_004_credit.pdf",
+  "status": "auto_accept",
+  "overall_confidence": 0.941,
+  "fields": {
+    "change_order_number": {
+      "value": "CO-022",
+      "confidence": 0.952,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Change Order Number: CO-022   Date Issued: September 3, 2025",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "project_name": {
+      "value": "Maple Street Senior Living - Phase 2",
+      "confidence": 0.87,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Project: Maple Street Senior Living - Phase 2 Project #: MSL-02",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "project_number": {
+      "value": "MSL-02",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Project: Maple Street Senior Living - Phase 2 Project #: MSL-02",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "owner": {
+      "value": "Maple Street Housing Trust",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Owner: Maple Street Housing Trust   Contractor: Brightline Interiors LLC",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "contractor": {
+      "value": "Brightline Interiors LLC",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Owner: Maple Street Housing Trust   Contractor: Brightline Interiors LLC",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "date_issued": {
+      "value": "2025-09-03",
+      "confidence": 0.952,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Change Order Number: CO-022   Date Issued: September 3, 2025",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "description": {
+      "value": "Substitute luxury vinyl tile (LVT) for porcelain tile in corridors 2A-2F.",
+      "confidence": 0.805,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Description: Substitute luxury vinyl tile (LVT) for porcelain tile in corridors 2A-2F.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.65",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "reason": {
+      "value": "value_engineering",
+      "confidence": 0.786,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Reason: Value engineering proposal VE-04 accepted by Owner.",
+      "flags": [
+        "inferred_from_keywords"
+      ],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "- inferred from keywords"
+      ]
+    },
+    "status": {
+      "value": "approved",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Status: Approved by Owner 09/05/2025",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "subtotal": {
+      "value": -4500.0,
+      "confidence": 0.984,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Subtotal   (4,500.00)",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass"
+      ]
+    },
+    "markup": {
+      "value": -450.0,
+      "confidence": 0.952,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Overhead & Profit 10%   (450.00)",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.80",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "tax": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "total_change_amount": {
+      "value": -4950.0,
+      "confidence": 0.99,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "TOTAL CHANGE ORDER AMOUNT (CREDIT)($4,950.00)",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass"
+      ]
+    },
+    "original_contract_sum": {
+      "value": 2300000.0,
+      "confidence": 0.978,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Original Contract Sum   $2,300,000.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "prior_change_orders_total": {
+      "value": 41250.0,
+      "confidence": 0.966,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Previous Change Orders   $41,250.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "contract_sum_before": {
+      "value": 2341250.0,
+      "confidence": 0.984,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Contract Sum Prior to This Change Order   $2,341,250.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass"
+      ]
+    },
+    "new_contract_sum": {
+      "value": 2336300.0,
+      "confidence": 0.978,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Revised Contract Sum   $2,336,300.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "schedule_impact_days": {
+      "value": -5,
+      "confidence": 0.87,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Contract Time will be decreased by 5 calendar days.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "new_completion_date": {
+      "value": "2026-01-16",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Revised Completion Date: 01/16/2026",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    }
+  },
+  "line_items": [
+    {
+      "fields": {
+        "description": {
+          "value": "Delete porcelain tile, installed",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Delete porcelain tile, installed   1,200 SF   9.50   (11,400.00)",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 1200.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Delete porcelain tile, installed   1,200 SF   9.50   (11,400.00)",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "SF",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Delete porcelain tile, installed   1,200 SF   9.50   (11,400.00)",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 9.5,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Delete porcelain tile, installed   1,200 SF   9.50   (11,400.00)",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": -11400.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Delete porcelain tile, installed   1,200 SF   9.50   (11,400.00)",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "1   Delete porcelain tile, installed   1,200 SF   9.50   (11,400.00)"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "Add LVT, installed",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   Add LVT, installed   1,200 SF   5.75   6,900.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 1200.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   Add LVT, installed   1,200 SF   5.75   6,900.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "SF",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   Add LVT, installed   1,200 SF   5.75   6,900.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 5.75,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   Add LVT, installed   1,200 SF   5.75   6,900.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": 6900.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   Add LVT, installed   1,200 SF   5.75   6,900.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "2   Add LVT, installed   1,200 SF   5.75   6,900.00"
+    }
+  ],
+  "validation": [],
+  "needs_review": [
+    "reason"
+  ],
+  "change_order": {
+    "change_order_number": "CO-022",
+    "project_name": "Maple Street Senior Living - Phase 2",
+    "project_number": "MSL-02",
+    "owner": "Maple Street Housing Trust",
+    "contractor": "Brightline Interiors LLC",
+    "date_issued": "2025-09-03",
+    "description": "Substitute luxury vinyl tile (LVT) for porcelain tile in corridors 2A-2F.",
+    "reason": "value_engineering",
+    "status": "approved",
+    "line_items": [
+      {
+        "description": "Delete porcelain tile, installed",
+        "quantity": 1200.0,
+        "unit": "SF",
+        "unit_price": 9.5,
+        "amount": -11400.0
+      },
+      {
+        "description": "Add LVT, installed",
+        "quantity": 1200.0,
+        "unit": "SF",
+        "unit_price": 5.75,
+        "amount": 6900.0
+      }
+    ],
+    "subtotal": -4500.0,
+    "markup": -450.0,
+    "tax": null,
+    "total_change_amount": -4950.0,
+    "original_contract_sum": 2300000.0,
+    "prior_change_orders_total": 41250.0,
+    "contract_sum_before": 2341250.0,
+    "new_contract_sum": 2336300.0,
+    "schedule_impact_days": -5,
+    "new_completion_date": "2026-01-16"
+  },
+  "meta": {
+    "input_kind": "pdf_text",
+    "pages": 1,
+    "text_quality": 1.0,
+    "ingest_notes": [],
+    "extractors": [
+      "rules"
+    ],
+    "elapsed_s": 0.015,
+    "checks_passed": [
+      "item_extension",
+      "item_extension",
+      "items_sum_to_subtotal",
+      "subtotal_plus_markup_tax_equals_total",
+      "original_plus_prior_equals_before",
+      "before_plus_change_equals_new",
+      "date_issued_plausible",
+      "completion_after_issue",
+      "schedule_days_plausible",
+      "change_size_plausible"
+    ]
+  }
+}

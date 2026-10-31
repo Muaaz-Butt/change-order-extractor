@@ -1,0 +1,272 @@
+{
+  "document": "co_008_scanned.pdf",
+  "status": "failed",
+  "overall_confidence": 0.0,
+  "fields": {
+    "change_order_number": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "project_name": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "project_number": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "owner": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "contractor": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "date_issued": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "description": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "reason": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "status": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "subtotal": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "markup": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "tax": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "total_change_amount": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "original_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "prior_change_orders_total": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "contract_sum_before": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "new_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "schedule_impact_days": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "new_completion_date": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    }
+  },
+  "line_items": [],
+  "validation": [
+    {
+      "rule": "required_field_missing",
+      "severity": "error",
+      "message": "change_order_number not found",
+      "fields": [
+        "change_order_number"
+      ]
+    },
+    {
+      "rule": "required_field_missing",
+      "severity": "error",
+      "message": "total_change_amount not found",
+      "fields": [
+        "total_change_amount"
+      ]
+    }
+  ],
+  "needs_review": [
+    "change_order_number",
+    "total_change_amount"
+  ],
+  "change_order": null,
+  "meta": {
+    "input_kind": "pdf_scanned",
+    "pages": 1,
+    "text_quality": 0.0,
+    "ingest_notes": [
+      "no_text_layer: needs OCR or the LLM vision path"
+    ],
+    "extractors": [
+      "rules"
+    ],
+    "elapsed_s": 0.001,
+    "checks_passed": []
+  }
+}

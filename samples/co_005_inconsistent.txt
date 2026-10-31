@@ -1,0 +1,26 @@
+SUMMIT MECHANICAL, INC.
+Potential Change Order / Pricing Proposal
+
+PCO #: 0031
+Date: 07/22/2025
+Project: Cedar Point Distribution Center
+Job No.: SM-5512
+Owner: Cedar Point Logistics
+Contractor: Summit Mechanical, Inc.
+
+Description: Reroute 6" chilled water main around structural beam conflict
+at gridline K/7. Beam not shown on mechanical drawings (see RFI-088).
+
+Reason: Design conflict / drawing discrepancy
+
+Item  Description                              Amount
+1.    Pipe, fittings, insulation               3,920.00
+2.    Pipefitter labor (40 hrs)                3,680.00
+3.    Lift rental (1 week)                       850.00
+
+Subtotal                                       8,540.00
+Markup 10%                                       854.00
+Total                                          9,394.00
+
+Schedule impact: 2 working days
+Status: Submitted for review

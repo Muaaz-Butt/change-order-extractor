@@ -1,0 +1,640 @@
+{
+  "document": "co_001_formal.pdf",
+  "status": "auto_accept",
+  "overall_confidence": 0.942,
+  "fields": {
+    "change_order_number": {
+      "value": "007",
+      "confidence": 0.952,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Change Order No.: 007   Date: 03/14/2025",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "project_name": {
+      "value": "Riverside Medical Office Building",
+      "confidence": 0.952,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Project Name: Riverside Medical Office Building Project No.: 2024-118",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "project_number": {
+      "value": "2024-118",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Project Name: Riverside Medical Office Building Project No.: 2024-118",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "owner": {
+      "value": "Riverside Health Partners LLC",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Owner: Riverside Health Partners LLC   Architect: Lumen Design Studio",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "contractor": {
+      "value": "Keystone Builders Inc.",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Contractor: Keystone Builders Inc.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "date_issued": {
+      "value": "2025-03-14",
+      "confidence": 0.839,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Change Order No.: 007   Date: 03/14/2025",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.70",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "description": {
+      "value": "Add two dedicated 20A circuits and six data drops for imaging room 214 per RFI-031.",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Description of Change:\nAdd two dedicated 20A circuits and six data drops for imaging room 214 per RFI-031.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "reason": {
+      "value": "owner_request",
+      "confidence": 0.874,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Reason for Change: Owner request - new imaging equipment selected by Owner.",
+      "flags": [
+        "inferred_from_keywords"
+      ],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "- inferred from keywords"
+      ]
+    },
+    "status": {
+      "value": "approved",
+      "confidence": 0.769,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "CHANGE   ORDER   APPROVED",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.60",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "subtotal": {
+      "value": 5150.0,
+      "confidence": 0.984,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Subtotal   5,150.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass"
+      ]
+    },
+    "markup": {
+      "value": 772.5,
+      "confidence": 0.952,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Overhead & Profit (15%)   772.50",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.80",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "tax": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "total_change_amount": {
+      "value": 5922.5,
+      "confidence": 0.99,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Total Change Order Amount $5,922.50",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass"
+      ]
+    },
+    "original_contract_sum": {
+      "value": 4850000.0,
+      "confidence": 0.978,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "The original Contract Sum was   $4,850,000.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "prior_change_orders_total": {
+      "value": 126400.0,
+      "confidence": 0.966,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Net change by previously authorized Change Orders   $126,400.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "contract_sum_before": {
+      "value": 4976400.0,
+      "confidence": 0.984,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "The Contract Sum prior to this Change Order was   $4,976,400.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass"
+      ]
+    },
+    "new_contract_sum": {
+      "value": 4982322.5,
+      "confidence": 0.978,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "The new Contract Sum including this Change Order will be   $4,982,322.50",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "schedule_impact_days": {
+      "value": 3,
+      "confidence": 0.87,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "The Contract Time will be increased by three (3) calendar days.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "new_completion_date": {
+      "value": "2025-11-21",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "The date of Substantial Completion as of the date of this Change Order therefore is November 21, 2025.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    }
+  },
+  "line_items": [
+    {
+      "fields": {
+        "description": {
+          "value": "Electrician labor",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Electrician labor   24   HR   95.00   2,280.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 24.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Electrician labor   24   HR   95.00   2,280.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "HR",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Electrician labor   24   HR   95.00   2,280.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 95.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Electrician labor   24   HR   95.00   2,280.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": 2280.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1   Electrician labor   24   HR   95.00   2,280.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "1   Electrician labor   24   HR   95.00   2,280.00"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "20A breakers, wire and conduit",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   20A breakers, wire and conduit   1   LS   1,140.00   1,140.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 1.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   20A breakers, wire and conduit   1   LS   1,140.00   1,140.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "LS",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   20A breakers, wire and conduit   1   LS   1,140.00   1,140.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 1140.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   20A breakers, wire and conduit   1   LS   1,140.00   1,140.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": 1140.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2   20A breakers, wire and conduit   1   LS   1,140.00   1,140.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "2   20A breakers, wire and conduit   1   LS   1,140.00   1,140.00"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "Cat6 data drops",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3   Cat6 data drops   6   EA   185.00   1,110.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 6.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3   Cat6 data drops   6   EA   185.00   1,110.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "EA",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3   Cat6 data drops   6   EA   185.00   1,110.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 185.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3   Cat6 data drops   6   EA   185.00   1,110.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": 1110.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3   Cat6 data drops   6   EA   185.00   1,110.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "3   Cat6 data drops   6   EA   185.00   1,110.00"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "Drywall patch and paint",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "4   Drywall patch and paint   1   LS   620.00   620.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 1.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "4   Drywall patch and paint   1   LS   620.00   620.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "LS",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "4   Drywall patch and paint   1   LS   620.00   620.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 620.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "4   Drywall patch and paint   1   LS   620.00   620.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": 620.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "4   Drywall patch and paint   1   LS   620.00   620.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "4   Drywall patch and paint   1   LS   620.00   620.00"
+    }
+  ],
+  "validation": [],
+  "needs_review": [
+    "status"
+  ],
+  "change_order": {
+    "change_order_number": "007",
+    "project_name": "Riverside Medical Office Building",
+    "project_number": "2024-118",
+    "owner": "Riverside Health Partners LLC",
+    "contractor": "Keystone Builders Inc.",
+    "date_issued": "2025-03-14",
+    "description": "Add two dedicated 20A circuits and six data drops for imaging room 214 per RFI-031.",
+    "reason": "owner_request",
+    "status": "approved",
+    "line_items": [
+      {
+        "description": "Electrician labor",
+        "quantity": 24.0,
+        "unit": "HR",
+        "unit_price": 95.0,
+        "amount": 2280.0
+      },
+      {
+        "description": "20A breakers, wire and conduit",
+        "quantity": 1.0,
+        "unit": "LS",
+        "unit_price": 1140.0,
+        "amount": 1140.0
+      },
+      {
+        "description": "Cat6 data drops",
+        "quantity": 6.0,
+        "unit": "EA",
+        "unit_price": 185.0,
+        "amount": 1110.0
+      },
+      {
+        "description": "Drywall patch and paint",
+        "quantity": 1.0,
+        "unit": "LS",
+        "unit_price": 620.0,
+        "amount": 620.0
+      }
+    ],
+    "subtotal": 5150.0,
+    "markup": 772.5,
+    "tax": null,
+    "total_change_amount": 5922.5,
+    "original_contract_sum": 4850000.0,
+    "prior_change_orders_total": 126400.0,
+    "contract_sum_before": 4976400.0,
+    "new_contract_sum": 4982322.5,
+    "schedule_impact_days": 3,
+    "new_completion_date": "2025-11-21"
+  },
+  "meta": {
+    "input_kind": "pdf_text",
+    "pages": 1,
+    "text_quality": 1.0,
+    "ingest_notes": [],
+    "extractors": [
+      "rules"
+    ],
+    "elapsed_s": 0.06,
+    "checks_passed": [
+      "item_extension",
+      "item_extension",
+      "item_extension",
+      "item_extension",
+      "items_sum_to_subtotal",
+      "subtotal_plus_markup_tax_equals_total",
+      "original_plus_prior_equals_before",
+      "before_plus_change_equals_new",
+      "date_issued_plausible",
+      "completion_after_issue",
+      "schedule_days_plausible",
+      "change_size_plausible"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "change_order_number": "5",
+  "project_name": "Summit Ridge Townhomes, Bldg C",
+  "project_number": null,
+  "owner": null,
+  "contractor": "Blue Ridge Plumbing & Heating",
+  "date_issued": "2025-08-15",
+  "description": "Upsize water heater venting in units C1-C4 to meet the mechanical code.",
+  "reason": "regulatory",
+  "status": "pending",
+  "subtotal": 2560.0,
+  "markup": null,
+  "tax": 102.3,
+  "total_change_amount": 2662.3,
+  "original_contract_sum": null,
+  "prior_change_orders_total": null,
+  "contract_sum_before": null,
+  "new_contract_sum": null,
+  "schedule_impact_days": 0,
+  "new_completion_date": null,
+  "line_items": [
+    {
+      "description": "Upsize B-vent, 4 units",
+      "quantity": null,
+      "unit": null,
+      "unit_price": null,
+      "amount": 1240.0
+    },
+    {
+      "description": "Labor, 10 hrs",
+      "quantity": null,
+      "unit": null,
+      "unit_price": null,
+      "amount": 1120.0
+    },
+    {
+      "description": "Permit revision fee",
+      "quantity": null,
+      "unit": null,
+      "unit_price": null,
+      "amount": 200.0
+    }
+  ]
+}

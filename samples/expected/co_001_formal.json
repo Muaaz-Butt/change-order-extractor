@@ -1,0 +1,51 @@
+{
+  "change_order_number": "007",
+  "project_name": "Riverside Medical Office Building",
+  "project_number": "2024-118",
+  "owner": "Riverside Health Partners LLC",
+  "contractor": "Keystone Builders Inc.",
+  "date_issued": "2025-03-14",
+  "description": "Add two dedicated 20A circuits and six data drops for imaging room 214 per RFI-031.",
+  "reason": "owner_request",
+  "status": "approved",
+  "subtotal": 5150.0,
+  "markup": 772.5,
+  "tax": null,
+  "total_change_amount": 5922.5,
+  "original_contract_sum": 4850000.0,
+  "prior_change_orders_total": 126400.0,
+  "contract_sum_before": 4976400.0,
+  "new_contract_sum": 4982322.5,
+  "schedule_impact_days": 3,
+  "new_completion_date": "2025-11-21",
+  "line_items": [
+    {
+      "description": "Electrician labor",
+      "quantity": 24,
+      "unit": "HR",
+      "unit_price": 95.0,
+      "amount": 2280.0
+    },
+    {
+      "description": "20A breakers, wire and conduit",
+      "quantity": 1,
+      "unit": "LS",
+      "unit_price": 1140.0,
+      "amount": 1140.0
+    },
+    {
+      "description": "Cat6 data drops",
+      "quantity": 6,
+      "unit": "EA",
+      "unit_price": 185.0,
+      "amount": 1110.0
+    },
+    {
+      "description": "Drywall patch and paint",
+      "quantity": 1,
+      "unit": "LS",
+      "unit_price": 620.0,
+      "amount": 620.0
+    }
+  ]
+}

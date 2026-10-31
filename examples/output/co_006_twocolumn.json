@@ -1,0 +1,548 @@
+{
+  "document": "co_006_twocolumn.pdf",
+  "status": "auto_accept",
+  "overall_confidence": 0.833,
+  "fields": {
+    "change_order_number": {
+      "value": "CO 9",
+      "confidence": 0.952,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "CHANGE ORDER NO.   DATE\nCO 9   10/02/2025",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "project_name": {
+      "value": "Westfield Retail Pad Site",
+      "confidence": 0.87,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "PROJECT   PROJECT NO.\nWestfield Retail Pad Site   IW-7740",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "project_number": {
+      "value": "IW-7740",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "PROJECT   PROJECT NO.\nWestfield Retail Pad Site   IW-7740",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "owner": {
+      "value": "Westfield Commercial Partners",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "OWNER   CONTRACTOR\nWestfield Commercial Partners   Ironwood Civil Contractors",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "contractor": {
+      "value": "Ironwood Civil Contractors",
+      "confidence": 0.927,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "OWNER   CONTRACTOR\nWestfield Commercial Partners   Ironwood Civil Contractors",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "date_issued": {
+      "value": "2025-10-02",
+      "confidence": 0.679,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "CHANGE ORDER NO.   DATE\nCO 9   10/02/2025",
+      "flags": [
+        "ambiguous_day_month"
+      ],
+      "reasons": [
+        "extractor certainty 0.70",
+        "+ quote found verbatim in document",
+        "- ambiguous day month"
+      ]
+    },
+    "description": {
+      "value": "Remove unsuitable soils and import structural fill at building pad.",
+      "confidence": 0.899,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "SCOPE OF CHANGE: Remove unsuitable soils and import structural fill at building pad.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.80",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "reason": {
+      "value": "unforeseen_condition",
+      "confidence": 0.5,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "SCOPE OF CHANGE: Remove unsuitable soils and import structural fill at building pad.\n   Unforeseen subsurface condition: organic clay encountered at 3 ft, not identified\n   in the geotechnical report.",
+      "flags": [
+        "inferred_from_keywords"
+      ],
+      "reasons": [
+        "extractor certainty 0.45",
+        "+ quote found verbatim in document",
+        "- inferred from keywords"
+      ]
+    },
+    "status": {
+      "value": "pending",
+      "confidence": 0.769,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Awaiting Owner approval.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.60",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "subtotal": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "markup": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "tax": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "total_change_amount": {
+      "value": 34670.0,
+      "confidence": 0.858,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Total   $34,670.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.55",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "original_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "prior_change_orders_total": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "contract_sum_before": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "new_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "schedule_impact_days": {
+      "value": 14,
+      "confidence": 0.832,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Time Extension: 2 weeks",
+      "flags": [
+        "converted_from_weeks"
+      ],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "- converted from weeks"
+      ]
+    },
+    "new_completion_date": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    }
+  },
+  "line_items": [
+    {
+      "fields": {
+        "description": {
+          "value": "Excavate and haul unsuitable soil",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Excavate and haul unsuitable soil 640   CY   18.50   11,840.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 640.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Excavate and haul unsuitable soil 640   CY   18.50   11,840.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "CY",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Excavate and haul unsuitable soil 640   CY   18.50   11,840.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 18.5,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Excavate and haul unsuitable soil 640   CY   18.50   11,840.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": 11840.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Excavate and haul unsuitable soil 640   CY   18.50   11,840.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "Excavate and haul unsuitable soil 640   CY   18.50   11,840.00"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "Import and compact structural fill",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Import and compact structural fill 640  CY   32.00   20,480.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 640.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Import and compact structural fill 640  CY   32.00   20,480.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "CY",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Import and compact structural fill 640  CY   32.00   20,480.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 32.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Import and compact structural fill 640  CY   32.00   20,480.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": 20480.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Import and compact structural fill 640  CY   32.00   20,480.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "Import and compact structural fill 640  CY   32.00   20,480.00"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "Geotechnical testing",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Geotechnical testing   1   LS   2,350.00   2,350.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "quantity": {
+          "value": 1.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Geotechnical testing   1   LS   2,350.00   2,350.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "unit": {
+          "value": "LS",
+          "confidence": 0.899,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Geotechnical testing   1   LS   2,350.00   2,350.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document"
+          ]
+        },
+        "unit_price": {
+          "value": 2350.0,
+          "confidence": 0.952,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Geotechnical testing   1   LS   2,350.00   2,350.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass"
+          ]
+        },
+        "amount": {
+          "value": 2350.0,
+          "confidence": 0.978,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "Geotechnical testing   1   LS   2,350.00   2,350.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass"
+          ]
+        }
+      },
+      "confidence": 0.899,
+      "evidence": "Geotechnical testing   1   LS   2,350.00   2,350.00"
+    }
+  ],
+  "validation": [],
+  "needs_review": [
+    "date_issued",
+    "reason",
+    "status"
+  ],
+  "change_order": {
+    "change_order_number": "CO 9",
+    "project_name": "Westfield Retail Pad Site",
+    "project_number": "IW-7740",
+    "owner": "Westfield Commercial Partners",
+    "contractor": "Ironwood Civil Contractors",
+    "date_issued": "2025-10-02",
+    "description": "Remove unsuitable soils and import structural fill at building pad.",
+    "reason": "unforeseen_condition",
+    "status": "pending",
+    "line_items": [
+      {
+        "description": "Excavate and haul unsuitable soil",
+        "quantity": 640.0,
+        "unit": "CY",
+        "unit_price": 18.5,
+        "amount": 11840.0
+      },
+      {
+        "description": "Import and compact structural fill",
+        "quantity": 640.0,
+        "unit": "CY",
+        "unit_price": 32.0,
+        "amount": 20480.0
+      },
+      {
+        "description": "Geotechnical testing",
+        "quantity": 1.0,
+        "unit": "LS",
+        "unit_price": 2350.0,
+        "amount": 2350.0
+      }
+    ],
+    "subtotal": null,
+    "markup": null,
+    "tax": null,
+    "total_change_amount": 34670.0,
+    "original_contract_sum": null,
+    "prior_change_orders_total": null,
+    "contract_sum_before": null,
+    "new_contract_sum": null,
+    "schedule_impact_days": 14,
+    "new_completion_date": null
+  },
+  "meta": {
+    "input_kind": "pdf_text",
+    "pages": 1,
+    "text_quality": 1.0,
+    "ingest_notes": [],
+    "extractors": [
+      "rules"
+    ],
+    "elapsed_s": 0.012,
+    "checks_passed": [
+      "item_extension",
+      "item_extension",
+      "item_extension",
+      "items_plus_markup_tax_equal_total",
+      "date_issued_plausible",
+      "schedule_days_plausible"
+    ]
+  }
+}

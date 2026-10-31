@@ -1,0 +1,650 @@
+{
+  "document": "co_003_ocr_scan.txt",
+  "status": "needs_review",
+  "overall_confidence": 0.736,
+  "fields": {
+    "change_order_number": {
+      "value": "014",
+      "confidence": 0.762,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Change 0rder No.:   014                       Date:  O6/O9/2025",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "project_name": {
+      "value": "Lakeview Elementary School Addition",
+      "confidence": 0.696,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Project:   Lakeview Elementary School Addition",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "project_number": {
+      "value": "LV-2291",
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Project No.:   LV-2291",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "owner": {
+      "value": "Lakeview Unified School District",
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "0wner:   Lakeview Unified School District",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "contractor": {
+      "value": "Northgate Construction Services",
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Contractor:   Northgate Construction Services",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "date_issued": {
+      "value": "2025-06-09",
+      "confidence": 0.409,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Change 0rder No.:   014                       Date:  O6/O9/2025",
+      "flags": [
+        "ocr_corrected",
+        "ambiguous_day_month"
+      ],
+      "reasons": [
+        "extractor certainty 0.70",
+        "+ quote found verbatim in document",
+        "- ocr corrected",
+        "- ambiguous day month",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "description": {
+      "value": "Install additional fire-rated door assemblies at corridor C2 as required by the Fire Marshal during framing inspection.",
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Description of Change:\nInstall additional fire-rated door assemblies at corridor C2 as\nrequired by the Fire Marshal during framing inspection.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "reason": {
+      "value": "regulatory",
+      "confidence": 0.699,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Reason for Change:   Fire Marshal / code requirement",
+      "flags": [
+        "inferred_from_keywords"
+      ],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "- inferred from keywords",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "status": {
+      "value": "approved",
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Status:  APPR0VED",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "subtotal": {
+      "value": 7338.0,
+      "confidence": 0.775,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Subtotal                                                           7,338.OO",
+      "flags": [
+        "ocr_corrected"
+      ],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass",
+        "- ocr corrected",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "markup": {
+      "value": 880.56,
+      "confidence": 0.726,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Overhead & Profit (12%)                                              88O.56",
+      "flags": [
+        "ocr_corrected"
+      ],
+      "reasons": [
+        "extractor certainty 0.80",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass",
+        "- ocr corrected",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "tax": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "total_change_amount": {
+      "value": 8218.56,
+      "confidence": 0.792,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "T0TAL CHANGE 0RDER AMOUNT                                         8,218.56",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "original_contract_sum": {
+      "value": 6400000.0,
+      "confidence": 0.765,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "0riginal Contract Sum                                          6,4OO,OOO.OO",
+      "flags": [
+        "ocr_corrected"
+      ],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass",
+        "- ocr corrected",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "prior_change_orders_total": {
+      "value": 212750.0,
+      "confidence": 0.746,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Net change by previous change orders                             212,75O.OO",
+      "flags": [
+        "ocr_corrected"
+      ],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass",
+        "- ocr corrected",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "contract_sum_before": {
+      "value": 6612750.0,
+      "confidence": 0.775,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Contract Sum prior to this Change Order                        6,612,75O.OO",
+      "flags": [
+        "ocr_corrected"
+      ],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 2 arithmetic check(s) pass",
+        "- ocr corrected",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "new_contract_sum": {
+      "value": 6620968.56,
+      "confidence": 0.765,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "New Contract Sum including this Change Order                   6,62O,968.56",
+      "flags": [
+        "ocr_corrected"
+      ],
+      "reasons": [
+        "extractor certainty 0.90",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass",
+        "- ocr corrected",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "schedule_impact_days": {
+      "value": 4,
+      "confidence": 0.696,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Contract time will be increased by  4  calendar days.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "new_completion_date": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    }
+  },
+  "line_items": [
+    {
+      "fields": {
+        "description": {
+          "value": "90-min rated HM door & frame",
+          "confidence": 0.719,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1      90-min rated HM door & frame          2    EA     2,1OO.OO     4,2OO.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "quantity": {
+          "value": 2.0,
+          "confidence": 0.762,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1      90-min rated HM door & frame          2    EA     2,1OO.OO     4,2OO.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "unit": {
+          "value": "EA",
+          "confidence": 0.719,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1      90-min rated HM door & frame          2    EA     2,1OO.OO     4,2OO.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "unit_price": {
+          "value": 2100.0,
+          "confidence": 0.726,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1      90-min rated HM door & frame          2    EA     2,1OO.OO     4,2OO.OO",
+          "flags": [
+            "ocr_corrected"
+          ],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "- ocr corrected",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "amount": {
+          "value": 4200.0,
+          "confidence": 0.765,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "1      90-min rated HM door & frame          2    EA     2,1OO.OO     4,2OO.OO",
+          "flags": [
+            "ocr_corrected"
+          ],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass",
+            "- ocr corrected",
+            "capped by document text quality 0.50"
+          ]
+        }
+      },
+      "confidence": 0.719,
+      "evidence": "1      90-min rated HM door & frame          2    EA     2,1OO.OO     4,2OO.OO"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "Door hardware sets, rated",
+          "confidence": 0.719,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2      Door hardware sets, rated             2    EA       865.OO     1,73O.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "quantity": {
+          "value": 2.0,
+          "confidence": 0.762,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2      Door hardware sets, rated             2    EA       865.OO     1,73O.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "unit": {
+          "value": "EA",
+          "confidence": 0.719,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2      Door hardware sets, rated             2    EA       865.OO     1,73O.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "unit_price": {
+          "value": 865.0,
+          "confidence": 0.726,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2      Door hardware sets, rated             2    EA       865.OO     1,73O.OO",
+          "flags": [
+            "ocr_corrected"
+          ],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "- ocr corrected",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "amount": {
+          "value": 1730.0,
+          "confidence": 0.765,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "2      Door hardware sets, rated             2    EA       865.OO     1,73O.OO",
+          "flags": [
+            "ocr_corrected"
+          ],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass",
+            "- ocr corrected",
+            "capped by document text quality 0.50"
+          ]
+        }
+      },
+      "confidence": 0.719,
+      "evidence": "2      Door hardware sets, rated             2    EA       865.OO     1,73O.OO"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "Installation labor",
+          "confidence": 0.719,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3      Installation labor                   16    HR        88.OO     1,4O8.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "quantity": {
+          "value": 16.0,
+          "confidence": 0.762,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3      Installation labor                   16    HR        88.OO     1,4O8.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "unit": {
+          "value": "HR",
+          "confidence": 0.719,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3      Installation labor                   16    HR        88.OO     1,4O8.OO",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "unit_price": {
+          "value": 88.0,
+          "confidence": 0.726,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3      Installation labor                   16    HR        88.OO     1,4O8.OO",
+          "flags": [
+            "ocr_corrected"
+          ],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "- ocr corrected",
+            "capped by document text quality 0.50"
+          ]
+        },
+        "amount": {
+          "value": 1408.0,
+          "confidence": 0.765,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "3      Installation labor                   16    HR        88.OO     1,4O8.OO",
+          "flags": [
+            "ocr_corrected"
+          ],
+          "reasons": [
+            "extractor certainty 0.80",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass",
+            "- ocr corrected",
+            "capped by document text quality 0.50"
+          ]
+        }
+      },
+      "confidence": 0.719,
+      "evidence": "3      Installation labor                   16    HR        88.OO     1,4O8.OO"
+    }
+  ],
+  "validation": [],
+  "needs_review": [
+    "change_order_number",
+    "contract_sum_before",
+    "contractor",
+    "date_issued",
+    "description",
+    "line_items[0]",
+    "line_items[1]",
+    "line_items[2]",
+    "markup",
+    "new_contract_sum",
+    "original_contract_sum",
+    "owner",
+    "prior_change_orders_total",
+    "project_name",
+    "project_number",
+    "reason",
+    "schedule_impact_days",
+    "status",
+    "subtotal",
+    "total_change_amount"
+  ],
+  "change_order": {
+    "change_order_number": "014",
+    "project_name": "Lakeview Elementary School Addition",
+    "project_number": "LV-2291",
+    "owner": "Lakeview Unified School District",
+    "contractor": "Northgate Construction Services",
+    "date_issued": "2025-06-09",
+    "description": "Install additional fire-rated door assemblies at corridor C2 as required by the Fire Marshal during framing inspection.",
+    "reason": "regulatory",
+    "status": "approved",
+    "line_items": [
+      {
+        "description": "90-min rated HM door & frame",
+        "quantity": 2.0,
+        "unit": "EA",
+        "unit_price": 2100.0,
+        "amount": 4200.0
+      },
+      {
+        "description": "Door hardware sets, rated",
+        "quantity": 2.0,
+        "unit": "EA",
+        "unit_price": 865.0,
+        "amount": 1730.0
+      },
+      {
+        "description": "Installation labor",
+        "quantity": 16.0,
+        "unit": "HR",
+        "unit_price": 88.0,
+        "amount": 1408.0
+      }
+    ],
+    "subtotal": 7338.0,
+    "markup": 880.56,
+    "tax": null,
+    "total_change_amount": 8218.56,
+    "original_contract_sum": 6400000.0,
+    "prior_change_orders_total": 212750.0,
+    "contract_sum_before": 6612750.0,
+    "new_contract_sum": 6620968.56,
+    "schedule_impact_days": 4,
+    "new_completion_date": null
+  },
+  "meta": {
+    "input_kind": "text",
+    "pages": 1,
+    "text_quality": 0.5,
+    "ingest_notes": [
+      "ocr_digit_letter_confusion"
+    ],
+    "extractors": [
+      "rules"
+    ],
+    "elapsed_s": 0.003,
+    "checks_passed": [
+      "item_extension",
+      "item_extension",
+      "item_extension",
+      "items_sum_to_subtotal",
+      "subtotal_plus_markup_tax_equals_total",
+      "original_plus_prior_equals_before",
+      "before_plus_change_equals_new",
+      "date_issued_plausible",
+      "schedule_days_plausible",
+      "change_size_plausible"
+    ]
+  }
+}

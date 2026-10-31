@@ -1,0 +1,37 @@
+{
+  "change_order_number": "18",
+  "project_name": "Elm Court Office Fit-Out",
+  "project_number": null,
+  "owner": "Elm Court Holdings",
+  "contractor": "Vantage Interiors",
+  "date_issued": "2025-08-28",
+  "description": "Upgraded glass partitions in conference rooms 3 and 4.",
+  "reason": "owner_request",
+  "status": "rejected",
+  "subtotal": 17920.0,
+  "markup": 1433.6,
+  "tax": null,
+  "total_change_amount": 19353.6,
+  "original_contract_sum": null,
+  "prior_change_orders_total": null,
+  "contract_sum_before": null,
+  "new_contract_sum": null,
+  "schedule_impact_days": 10,
+  "new_completion_date": null,
+  "line_items": [
+    {
+      "description": "Frameless glass partition",
+      "quantity": 42,
+      "unit": "LF",
+      "unit_price": 310.0,
+      "amount": 13020.0
+    },
+    {
+      "description": "Glass door with hardware",
+      "quantity": 2,
+      "unit": "EA",
+      "unit_price": 2450.0,
+      "amount": 4900.0
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "document": "ho_002_pipes.md",
+  "status": "needs_review",
+  "overall_confidence": 0.685,
+  "fields": {
+    "change_order_number": {
+      "value": "18",
+      "confidence": 0.719,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| CO Number | 18 |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.80",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "project_name": {
+      "value": "| Elm Court Office Fit-Out |",
+      "confidence": 0.696,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| Project | Elm Court Office Fit-Out |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "project_number": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "owner": {
+      "value": "| Elm Court Holdings |",
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| Owner | Elm Court Holdings |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "contractor": {
+      "value": "| Vantage Interiors |",
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| Contractor | Vantage Interiors |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "date_issued": {
+      "value": "2025-08-28",
+      "confidence": 0.671,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| Date | 2025-08-28 |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.70",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "description": {
+      "value": "| Qty | Unit | Unit Price | Amount | |---|---|---|---|---|---| | 1 | Frameless glass partition | 42 | LF | 310.00 | 13,020.00 | | 2 | Glass door with hardware | 2 | EA | 2,450.00 | 4,900.00 |",
+      "confidence": 0.644,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| Item | Description | Qty | Unit | Unit Price | Amount |\n|---|---|---|---|---|---|\n| 1 | Frameless glass partition | 42 | LF | 310.00 | 13,020.00 |\n| 2 | Glass door with hardware | 2 | EA | 2,450.00 | 4,900.00 |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.65",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "reason": {
+      "value": "owner_request",
+      "confidence": 0.628,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Reason: Owner requested upgraded glass partitions in conference rooms 3 and 4.",
+      "flags": [
+        "inferred_from_keywords"
+      ],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "- inferred from keywords",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "status": {
+      "value": "rejected",
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| Status | Rejected |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "subtotal": {
+      "value": 17920.0,
+      "confidence": 0.741,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| Subtotal | 17,920.00 |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "markup": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "tax": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "total_change_amount": {
+      "value": 19353.6,
+      "confidence": 0.585,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "| Total | 19,353.60 |",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.55",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "original_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "prior_change_orders_total": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "contract_sum_before": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "new_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "schedule_impact_days": {
+      "value": 10,
+      "confidence": 0.696,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Contract time: increased by 10 days",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.50"
+      ]
+    },
+    "new_completion_date": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    }
+  },
+  "line_items": [],
+  "validation": [],
+  "needs_review": [
+    "change_order_number",
+    "contractor",
+    "date_issued",
+    "description",
+    "owner",
+    "project_name",
+    "reason",
+    "schedule_impact_days",
+    "status",
+    "subtotal",
+    "total_change_amount"
+  ],
+  "change_order": {
+    "change_order_number": "18",
+    "project_name": "| Elm Court Office Fit-Out |",
+    "project_number": null,
+    "owner": "| Elm Court Holdings |",
+    "contractor": "| Vantage Interiors |",
+    "date_issued": "2025-08-28",
+    "description": "| Qty | Unit | Unit Price | Amount | |---|---|---|---|---|---| | 1 | Frameless glass partition | 42 | LF | 310.00 | 13,020.00 | | 2 | Glass door with hardware | 2 | EA | 2,450.00 | 4,900.00 |",
+    "reason": "owner_request",
+    "status": "rejected",
+    "line_items": [],
+    "subtotal": 17920.0,
+    "markup": null,
+    "tax": null,
+    "total_change_amount": 19353.6,
+    "original_contract_sum": null,
+    "prior_change_orders_total": null,
+    "contract_sum_before": null,
+    "new_contract_sum": null,
+    "schedule_impact_days": 10,
+    "new_completion_date": null
+  },
+  "meta": {
+    "input_kind": "text",
+    "pages": 1,
+    "text_quality": 0.5,
+    "ingest_notes": [
+      "unusual_characters"
+    ],
+    "extractors": [
+      "rules"
+    ],
+    "elapsed_s": 0.001,
+    "checks_passed": [
+      "date_issued_plausible",
+      "schedule_days_plausible"
+    ]
+  }
+}

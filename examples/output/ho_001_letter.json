@@ -1,0 +1,286 @@
+{
+  "document": "ho_001_letter.txt",
+  "status": "needs_review",
+  "overall_confidence": 0.865,
+  "fields": {
+    "change_order_number": {
+      "value": "5",
+      "confidence": 0.769,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "RE: Change Order Request No. 5 -- Summit Ridge Townhomes, Bldg C",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.60",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "project_name": {
+      "value": "Change Order Request No. 5 -- Summit Ridge Townhomes, Bldg C",
+      "confidence": 0.597,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "RE: Change Order Request No. 5 -- Summit Ridge Townhomes, Bldg C",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.40",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "project_number": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "owner": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "contractor": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "date_issued": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "description": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "reason": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "status": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "subtotal": {
+      "value": 2560.0,
+      "confidence": 0.966,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Subtotal                               USD 2,560.00",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "markup": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "tax": {
+      "value": 102.3,
+      "confidence": 0.952,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Sales Tax 8.25% (materials only)       USD   102.30",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.80",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "total_change_amount": {
+      "value": 2662.3,
+      "confidence": 0.858,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Total Requested                        USD 2,662.30",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.55",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass"
+      ]
+    },
+    "original_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "prior_change_orders_total": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "contract_sum_before": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "new_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "schedule_impact_days": {
+      "value": 0,
+      "confidence": 0.87,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Schedule: no change to contract time.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document"
+      ]
+    },
+    "new_completion_date": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    }
+  },
+  "line_items": [],
+  "validation": [],
+  "needs_review": [
+    "change_order_number",
+    "project_name"
+  ],
+  "change_order": {
+    "change_order_number": "5",
+    "project_name": "Change Order Request No. 5 -- Summit Ridge Townhomes, Bldg C",
+    "project_number": null,
+    "owner": null,
+    "contractor": null,
+    "date_issued": null,
+    "description": null,
+    "reason": null,
+    "status": null,
+    "line_items": [],
+    "subtotal": 2560.0,
+    "markup": null,
+    "tax": 102.3,
+    "total_change_amount": 2662.3,
+    "original_contract_sum": null,
+    "prior_change_orders_total": null,
+    "contract_sum_before": null,
+    "new_contract_sum": null,
+    "schedule_impact_days": 0,
+    "new_completion_date": null
+  },
+  "meta": {
+    "input_kind": "text",
+    "pages": 1,
+    "text_quality": 1.0,
+    "ingest_notes": [],
+    "extractors": [
+      "rules"
+    ],
+    "elapsed_s": 0.002,
+    "checks_passed": [
+      "subtotal_plus_markup_tax_equals_total",
+      "schedule_days_plausible"
+    ]
+  }
+}

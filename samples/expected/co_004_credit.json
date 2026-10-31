@@ -1,0 +1,37 @@
+{
+  "change_order_number": "CO-022",
+  "project_name": "Maple Street Senior Living - Phase 2",
+  "project_number": "MSL-02",
+  "owner": "Maple Street Housing Trust",
+  "contractor": "Brightline Interiors LLC",
+  "date_issued": "2025-09-03",
+  "description": "Substitute luxury vinyl tile (LVT) for porcelain tile in corridors 2A-2F.",
+  "reason": "value_engineering",
+  "status": "approved",
+  "subtotal": -4500.0,
+  "markup": -450.0,
+  "tax": null,
+  "total_change_amount": -4950.0,
+  "original_contract_sum": 2300000.0,
+  "prior_change_orders_total": 41250.0,
+  "contract_sum_before": 2341250.0,
+  "new_contract_sum": 2336300.0,
+  "schedule_impact_days": -5,
+  "new_completion_date": "2026-01-16",
+  "line_items": [
+    {
+      "description": "Delete porcelain tile, installed",
+      "quantity": 1200,
+      "unit": "SF",
+      "unit_price": 9.5,
+      "amount": -11400.0
+    },
+    {
+      "description": "Add LVT, installed",
+      "quantity": 1200,
+      "unit": "SF",
+      "unit_price": 5.75,
+      "amount": 6900.0
+    }
+  ]
+}

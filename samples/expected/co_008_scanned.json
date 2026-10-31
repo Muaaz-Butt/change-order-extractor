@@ -1,0 +1,38 @@
+{
+  "change_order_number": "3",
+  "project_name": "Pine Hollow Clubhouse Renovation",
+  "project_number": null,
+  "owner": "Pine Hollow HOA",
+  "contractor": "Oakridge Remodeling Co.",
+  "date_issued": "2025-05-12",
+  "description": "Replace rotted rim joist found behind siding.",
+  "reason": "unforeseen_condition",
+  "status": "approved",
+  "subtotal": null,
+  "markup": null,
+  "tax": null,
+  "total_change_amount": 1310.0,
+  "original_contract_sum": null,
+  "prior_change_orders_total": null,
+  "contract_sum_before": null,
+  "new_contract_sum": null,
+  "schedule_impact_days": 1,
+  "new_completion_date": null,
+  "line_items": [
+    {
+      "description": "Framing labor",
+      "quantity": 12,
+      "unit": "HR",
+      "unit_price": 75.0,
+      "amount": 900.0
+    },
+    {
+      "description": "Lumber and fasteners",
+      "quantity": 1,
+      "unit": "LS",
+      "unit_price": 410.0,
+      "amount": 410.0
+    }
+  ],
+  "_note": "Image-only PDF. Offline (rules) mode cannot read it; expected status 'failed'. The LLM path reads the PDF visually."
+}

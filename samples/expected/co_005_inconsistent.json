@@ -1,0 +1,45 @@
+{
+  "change_order_number": "0031",
+  "project_name": "Cedar Point Distribution Center",
+  "project_number": "SM-5512",
+  "owner": "Cedar Point Logistics",
+  "contractor": "Summit Mechanical, Inc.",
+  "date_issued": "2025-07-22",
+  "description": "Reroute 6\" chilled water main around structural beam conflict at gridline K/7. Beam not shown on mechanical drawings (see RFI-088).",
+  "reason": "design_error",
+  "status": "pending",
+  "subtotal": 8540.0,
+  "markup": 854.0,
+  "tax": null,
+  "total_change_amount": 9394.0,
+  "original_contract_sum": null,
+  "prior_change_orders_total": null,
+  "contract_sum_before": null,
+  "new_contract_sum": null,
+  "schedule_impact_days": 2,
+  "new_completion_date": null,
+  "line_items": [
+    {
+      "description": "Pipe, fittings, insulation",
+      "quantity": null,
+      "unit": null,
+      "unit_price": null,
+      "amount": 3920.0
+    },
+    {
+      "description": "Pipefitter labor (40 hrs)",
+      "quantity": null,
+      "unit": null,
+      "unit_price": null,
+      "amount": 3680.0
+    },
+    {
+      "description": "Lift rental (1 week)",
+      "quantity": null,
+      "unit": null,
+      "unit_price": null,
+      "amount": 850.0
+    }
+  ],
+  "_note": "Document is internally inconsistent: items sum to 8,450.00 but the stated subtotal is 8,540.00. Expected outcome is needs_review."
+}

@@ -1,0 +1,472 @@
+{
+  "document": "co_002_email.txt",
+  "status": "needs_review",
+  "overall_confidence": 0.855,
+  "fields": {
+    "change_order_number": {
+      "value": "CO-12",
+      "confidence": 0.759,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Subject: RE: RE: Unit 4B extra outlets -- Change Order CO-12",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.60",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.97"
+      ]
+    },
+    "project_name": {
+      "value": "Harbor View Lofts",
+      "confidence": 0.858,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Project: Harbor View Lofts",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.97"
+      ]
+    },
+    "project_number": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "owner": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "contractor": {
+      "value": "Crestline General Contractors",
+      "confidence": 0.914,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Contractor: Crestline General Contractors",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.85",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.97"
+      ]
+    },
+    "date_issued": {
+      "value": "2025-04-02",
+      "confidence": 0.827,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Date: Wed, 2 Apr 2025 09:41:12 -0700",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.70",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.97"
+      ]
+    },
+    "description": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "reason": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "status": {
+      "value": "pending",
+      "confidence": 0.759,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "This is pending your sign-off, reply \"approved\" and I'll get the formal",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.60",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.97"
+      ]
+    },
+    "subtotal": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "markup": {
+      "value": 165.5,
+      "confidence": 0.939,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Plus our 10% markup ($165.50) so the total bump is $1,820.50.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.80",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass",
+        "capped by document text quality 0.97"
+      ]
+    },
+    "tax": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "total_change_amount": {
+      "value": 1820.5,
+      "confidence": 0.847,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "Plus our 10% markup ($165.50) so the total bump is $1,820.50.",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.55",
+        "+ quote found verbatim in document",
+        "+ 1 arithmetic check(s) pass",
+        "capped by document text quality 0.97"
+      ]
+    },
+    "original_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "prior_change_orders_total": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "contract_sum_before": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "new_contract_sum": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    },
+    "schedule_impact_days": {
+      "value": 0,
+      "confidence": 0.858,
+      "sources": [
+        "rules"
+      ],
+      "evidence": "No schedule impact -- we can knock this out during the rough-in already on",
+      "flags": [],
+      "reasons": [
+        "extractor certainty 0.75",
+        "+ quote found verbatim in document",
+        "capped by document text quality 0.97"
+      ]
+    },
+    "new_completion_date": {
+      "value": null,
+      "confidence": 0.0,
+      "sources": [],
+      "evidence": null,
+      "flags": [
+        "missing"
+      ],
+      "reasons": [
+        "not found by any extractor"
+      ]
+    }
+  },
+  "line_items": [
+    {
+      "fields": {
+        "description": {
+          "value": "duplex outlets",
+          "confidence": 0.827,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 3 ea duplex outlets @ $425 ea = $1,275.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.97"
+          ]
+        },
+        "quantity": {
+          "value": 3.0,
+          "confidence": 0.908,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 3 ea duplex outlets @ $425 ea = $1,275.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "capped by document text quality 0.97"
+          ]
+        },
+        "unit": {
+          "value": "ea",
+          "confidence": 0.827,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 3 ea duplex outlets @ $425 ea = $1,275.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.97"
+          ]
+        },
+        "unit_price": {
+          "value": 425.0,
+          "confidence": 0.908,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 3 ea duplex outlets @ $425 ea = $1,275.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "capped by document text quality 0.97"
+          ]
+        },
+        "amount": {
+          "value": 1275.0,
+          "confidence": 0.95,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 3 ea duplex outlets @ $425 ea = $1,275.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass",
+            "capped by document text quality 0.97"
+          ]
+        }
+      },
+      "confidence": 0.827,
+      "evidence": "- 3 ea duplex outlets @ $425 ea = $1,275.00"
+    },
+    {
+      "fields": {
+        "description": {
+          "value": "ceiling fan box relocation",
+          "confidence": 0.827,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 1 ea ceiling fan box relocation @ $380.00 = $380.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.97"
+          ]
+        },
+        "quantity": {
+          "value": 1.0,
+          "confidence": 0.908,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 1 ea ceiling fan box relocation @ $380.00 = $380.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "capped by document text quality 0.97"
+          ]
+        },
+        "unit": {
+          "value": "ea",
+          "confidence": 0.827,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 1 ea ceiling fan box relocation @ $380.00 = $380.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "capped by document text quality 0.97"
+          ]
+        },
+        "unit_price": {
+          "value": 380.0,
+          "confidence": 0.908,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 1 ea ceiling fan box relocation @ $380.00 = $380.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "+ 1 arithmetic check(s) pass",
+            "capped by document text quality 0.97"
+          ]
+        },
+        "amount": {
+          "value": 380.0,
+          "confidence": 0.95,
+          "sources": [
+            "rules"
+          ],
+          "evidence": "- 1 ea ceiling fan box relocation @ $380.00 = $380.00",
+          "flags": [],
+          "reasons": [
+            "extractor certainty 0.70",
+            "+ quote found verbatim in document",
+            "+ 2 arithmetic check(s) pass",
+            "capped by document text quality 0.97"
+          ]
+        }
+      },
+      "confidence": 0.827,
+      "evidence": "- 1 ea ceiling fan box relocation @ $380.00 = $380.00"
+    }
+  ],
+  "validation": [],
+  "needs_review": [
+    "change_order_number",
+    "status"
+  ],
+  "change_order": {
+    "change_order_number": "CO-12",
+    "project_name": "Harbor View Lofts",
+    "project_number": null,
+    "owner": null,
+    "contractor": "Crestline General Contractors",
+    "date_issued": "2025-04-02",
+    "description": null,
+    "reason": null,
+    "status": "pending",
+    "line_items": [
+      {
+        "description": "duplex outlets",
+        "quantity": 3.0,
+        "unit": "ea",
+        "unit_price": 425.0,
+        "amount": 1275.0
+      },
+      {
+        "description": "ceiling fan box relocation",
+        "quantity": 1.0,
+        "unit": "ea",
+        "unit_price": 380.0,
+        "amount": 380.0
+      }
+    ],
+    "subtotal": null,
+    "markup": 165.5,
+    "tax": null,
+    "total_change_amount": 1820.5,
+    "original_contract_sum": null,
+    "prior_change_orders_total": null,
+    "contract_sum_before": null,
+    "new_contract_sum": null,
+    "schedule_impact_days": 0,
+    "new_completion_date": null
+  },
+  "meta": {
+    "input_kind": "text",
+    "pages": 1,
+    "text_quality": 0.967,
+    "ingest_notes": [],
+    "extractors": [
+      "rules"
+    ],
+    "elapsed_s": 0.005,
+    "checks_passed": [
+      "item_extension",
+      "item_extension",
+      "items_plus_markup_tax_equal_total",
+      "date_issued_plausible",
+      "schedule_days_plausible"
+    ]
+  }
+}

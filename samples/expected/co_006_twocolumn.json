@@ -1,0 +1,44 @@
+{
+  "change_order_number": "CO 9",
+  "project_name": "Westfield Retail Pad Site",
+  "project_number": "IW-7740",
+  "owner": "Westfield Commercial Partners",
+  "contractor": "Ironwood Civil Contractors",
+  "date_issued": "2025-10-02",
+  "description": "Remove unsuitable soils and import structural fill at building pad.",
+  "reason": "unforeseen_condition",
+  "status": "pending",
+  "subtotal": null,
+  "markup": null,
+  "tax": null,
+  "total_change_amount": 34670.0,
+  "original_contract_sum": null,
+  "prior_change_orders_total": null,
+  "contract_sum_before": null,
+  "new_contract_sum": null,
+  "schedule_impact_days": 14,
+  "new_completion_date": null,
+  "line_items": [
+    {
+      "description": "Excavate and haul unsuitable soil",
+      "quantity": 640,
+      "unit": "CY",
+      "unit_price": 18.5,
+      "amount": 11840.0
+    },
+    {
+      "description": "Import and compact structural fill",
+      "quantity": 640,
+      "unit": "CY",
+      "unit_price": 32.0,
+      "amount": 20480.0
+    },
+    {
+      "description": "Geotechnical testing",
+      "quantity": 1,
+      "unit": "LS",
+      "unit_price": 2350.0,
+      "amount": 2350.0
+    }
+  ]
+}

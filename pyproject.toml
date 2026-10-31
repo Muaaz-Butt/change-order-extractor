@@ -1,0 +1,30 @@
+[project]
+name = "co-extract"
+version = "0.1.0"
+description = "Extract validated JSON with per-field confidence from messy construction change-order PDFs and text"
+readme = "README.md"
+authors = [
+    { name = "Muaaz Butt", email = "muaazbutt585@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=0.70",
+    "pdfplumber>=0.11",
+    "pydantic>=2.7",
+]
+
+[project.scripts]
+co-extract = "co_extract.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.18,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "reportlab>=5.1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

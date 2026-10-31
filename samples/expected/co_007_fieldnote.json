@@ -1,0 +1,31 @@
+{
+  "change_order_number": "3",
+  "project_name": null,
+  "project_number": null,
+  "owner": null,
+  "contractor": null,
+  "date_issued": null,
+  "description": "Extra rock removal at footing F-7; hit ledge ~4ft down, not in the geotech report.",
+  "reason": "unforeseen_condition",
+  "status": null,
+  "subtotal": null,
+  "markup": null,
+  "tax": null,
+  "total_change_amount": 1260.0,
+  "original_contract_sum": null,
+  "prior_change_orders_total": null,
+  "contract_sum_before": null,
+  "new_contract_sum": null,
+  "schedule_impact_days": null,
+  "new_completion_date": null,
+  "line_items": [
+    {
+      "description": "excavator w/ breaker",
+      "quantity": 6,
+      "unit": "hrs",
+      "unit_price": 210.0,
+      "amount": 1260.0
+    }
+  ],
+  "_note": "Total is not written; it equals the single T&M line. Expected outcome is needs_review."
+}

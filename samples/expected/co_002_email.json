@@ -1,0 +1,37 @@
+{
+  "change_order_number": "CO-12",
+  "project_name": "Harbor View Lofts",
+  "project_number": null,
+  "owner": null,
+  "contractor": "Crestline General Contractors",
+  "date_issued": "2025-04-02",
+  "description": "Add outlets in the kitchen island and move the fan box in unit 4B per tenant request.",
+  "reason": "owner_request",
+  "status": "pending",
+  "subtotal": null,
+  "markup": 165.5,
+  "tax": null,
+  "total_change_amount": 1820.5,
+  "original_contract_sum": null,
+  "prior_change_orders_total": null,
+  "contract_sum_before": null,
+  "new_contract_sum": null,
+  "schedule_impact_days": 0,
+  "new_completion_date": null,
+  "line_items": [
+    {
+      "description": "duplex outlets",
+      "quantity": 3,
+      "unit": "ea",
+      "unit_price": 425.0,
+      "amount": 1275.0
+    },
+    {
+      "description": "ceiling fan box relocation",
+      "quantity": 1,
+      "unit": "ea",
+      "unit_price": 380.0,
+      "amount": 380.0
+    }
+  ]
+}
