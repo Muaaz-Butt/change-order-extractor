@@ -18,6 +18,7 @@ W, H = letter
 
 
 def _rows(c: canvas.Canvas, y: float, rows: list[tuple], xs: list[float], size: int = 9, bold_first=False) -> float:
+    """Draw a table of rows at the given column positions and return the y position below it."""
     for n, row in enumerate(rows):
         c.setFont("Helvetica-Bold" if bold_first and n == 0 else "Helvetica", size)
         for x, cell in zip(xs, row):
@@ -30,6 +31,7 @@ def _rows(c: canvas.Canvas, y: float, rows: list[tuple], xs: list[float], size: 
 
 
 def co_001_formal() -> None:
+    """Generate the formal AIA-style change order PDF sample."""
     c = canvas.Canvas(str(OUT / "co_001_formal.pdf"), pagesize=letter)
     c.setFont("Helvetica-Bold", 15)
     c.drawString(50, H - 55, "CHANGE ORDER")
@@ -85,6 +87,7 @@ def co_001_formal() -> None:
 
 
 def co_004_credit() -> None:
+    """Generate the deductive (credit) change order PDF sample."""
     c = canvas.Canvas(str(OUT / "co_004_credit.pdf"), pagesize=letter)
     c.setFont("Helvetica-Bold", 14)
     c.drawString(50, H - 55, "BRIGHTLINE INTERIORS - DEDUCTIVE CHANGE ORDER")

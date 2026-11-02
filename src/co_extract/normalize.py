@@ -21,6 +21,7 @@ _OCR_DIGIT_MAP = str.maketrans({"O": "0", "o": "0", "D": "0", "l": "1", "I": "1"
 
 
 def _fix_ocr_digits(token: str) -> tuple[str, bool]:
+    """Repair OCR look-alike characters (O->0, l->1, S->5, ...) in a numeric token."""
     stripped = re.sub(r"[\s$,.()\-+/]", "", token)
     if not stripped:
         return token, False
@@ -32,6 +33,7 @@ def _fix_ocr_digits(token: str) -> tuple[str, bool]:
 
 
 def parse_money(raw: str | None) -> tuple[Decimal | None, list[str]]:
+    """Parse a money string (credits, OCR damage, EU formats) into a Decimal with flags."""
     if raw is None:
         return None, []
     s = str(raw).strip()
@@ -70,6 +72,7 @@ def parse_money(raw: str | None) -> tuple[Decimal | None, list[str]]:
 
 
 def parse_number(raw: str | None) -> tuple[Decimal | None, list[str]]:
+    """Parse a plain number such as a quantity into a Decimal with flags."""
     if raw is None or not str(raw).strip():
         return None, []
     m = re.search(r"-?[\dOolI][\dOolI,]*(?:\.\d+)?", str(raw))
@@ -118,6 +121,7 @@ _DATE_FORMATS = ("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y", "%m-%d-%Y", "%B %d, %Y", "%
 
 
 def parse_date(raw: str | None) -> tuple[date | None, list[str]]:
+    """Parse a date in many formats, flagging OCR repairs and ambiguous day/month order."""
     if raw is None or not str(raw).strip():
         return None, []
     s = re.sub(r"(\d)(st|nd|rd|th)\b", r"\1", str(raw).strip())
@@ -148,6 +152,7 @@ def parse_date(raw: str | None) -> tuple[date | None, list[str]]:
 
 
 def clean_text(raw: str | None) -> tuple[str | None, list[str]]:
+    """Collapse whitespace and trim stray punctuation from a text value."""
     if raw is None:
         return None, []
     s = re.sub(r"\s+", " ", str(raw)).strip(" :;-\t")
@@ -155,6 +160,7 @@ def clean_text(raw: str | None) -> tuple[str | None, list[str]]:
 
 
 def clean_id(raw: str | None) -> tuple[str | None, list[str]]:
+    """Clean a change-order or project number (drops 'No.', '#' and uppercases it)."""
     s, _ = clean_text(raw)
     if s is None:
         return None, []
@@ -172,6 +178,7 @@ _REASON_KEYWORDS: list[tuple[Reason, tuple[str, ...]]] = [
 
 
 def parse_reason(raw: str | None) -> tuple[Reason | None, list[str]]:
+    """Map reason wording to a Reason category using keywords."""
     if raw is None or not str(raw).strip():
         return None, []
     s = " " + str(raw).lower().replace("_", " ") + " "
@@ -185,6 +192,7 @@ def parse_reason(raw: str | None) -> tuple[Reason | None, list[str]]:
 
 
 def parse_status(raw: str | None) -> tuple[Status | None, list[str]]:
+    """Map approval wording or a stamp to a Status (approved, pending, rejected)."""
     if raw is None or not str(raw).strip():
         return None, []
     s = str(raw).lower().replace("0", "o")
@@ -209,6 +217,7 @@ ENUM_PARSERS = {"reason": parse_reason, "status": parse_status}
 
 
 def normalize(field: str, kind: str, raw: str | None):
+    """Normalize a raw field value with the parser for its kind; returns (value, flags)."""
     if kind == "enum":
         return ENUM_PARSERS[field](raw)
     return PARSERS[kind](raw)

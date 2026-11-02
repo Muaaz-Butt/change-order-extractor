@@ -37,11 +37,13 @@ CEILING = 0.99
 
 
 def logit(p: float) -> float:
+    """Convert a probability to log-odds, clamped away from 0 and 1."""
     p = min(max(p, 1e-4), 1 - 1e-4)
     return math.log(p / (1 - p))
 
 
 def sigmoid(x: float) -> float:
+    """Convert log-odds back to a probability."""
     return 1 / (1 + math.exp(-x))
 
 
@@ -59,10 +61,12 @@ class Signals:
 
 
 def score(s: Signals, doc_quality: float) -> tuple[float, list[str]]:
+    """Combine a field's signals into a confidence score plus the human-readable reasons behind it."""
     x = logit(s.certainty)
     reasons = [f"extractor certainty {s.certainty:.2f}"]
 
     def add(key: str, label: str, times: int = 1) -> None:
+        """Apply one weighted signal to the running log-odds and record why."""
         nonlocal x
         if times and W[key]:
             x += W[key] * times

@@ -15,6 +15,7 @@ from typing import Any
 from pydantic import ValidationError
 
 from . import confidence, ingest
+from .extractors import gemini as gemini_extractor
 from .extractors import llm as llm_extractor
 from .extractors import rules as rules_extractor
 from .extractors.base import Candidate, ExtractorOutput
@@ -53,6 +54,7 @@ class Item:
 # ---------------------------------------------------------------- reconcile
 
 def _choice(name: str, kind: str, c: Candidate | None) -> Choice | None:
+    """Normalize one extractor's candidate into a Choice, or None if it can't be parsed."""
     if c is None:
         return None
     value, flags = normalize(name, kind, c.raw)
@@ -62,17 +64,20 @@ def _choice(name: str, kind: str, c: Candidate | None) -> Choice | None:
 
 
 def _same(kind: str, a: Any, b: Any) -> bool:
+    """Return True if two normalized values agree (fuzzy match for text)."""
     if kind == "text":
         return SequenceMatcher(None, str(a).lower(), str(b).lower()).ratio() >= 0.85
     return a == b
 
 
 def _grounding_score(ch: Choice, doc: ingest.Document) -> float:
+    """Score how well a choice's evidence quote is found in the document text."""
     return 0.0 if doc.kind == "pdf_scanned" else ground(ch.evidence, doc.text)
 
 
 def reconcile_field(name: str, kind: str, r: Candidate | None, l: Candidate | None, both_ran: bool,
                     doc: ingest.Document) -> Choice | None:
+    """Merge the rules and LLM candidates for one field into a single choice."""
     rc, lc = _choice(name, kind, r), _choice(name, kind, l)
     if rc and lc:
         if _same(kind, rc.value, lc.value):
@@ -94,6 +99,7 @@ def reconcile_field(name: str, kind: str, r: Candidate | None, l: Candidate | No
 
 
 def _items(out: ExtractorOutput | None) -> list[Item]:
+    """Normalize an extractor's raw line items into Items."""
     if out is None:
         return []
     items = []
@@ -108,6 +114,7 @@ def _items(out: ExtractorOutput | None) -> list[Item]:
 
 
 def _item_sum_target(v: dict) -> Decimal | None:
+    """Return the amount the line items should add up to (subtotal, or total if no markup/tax)."""
     if v.get("subtotal") is not None:
         return v["subtotal"]
     if v.get("markup") is None and v.get("tax") is None:
@@ -122,6 +129,7 @@ def choose_items(rules_items: list[Item], llm_items: list[Item], v: dict) -> tup
     target = _item_sum_target(v)
 
     def fits(items: list[Item]) -> bool:
+        """Return True if these line items add up to the target amount."""
         return target is not None and abs(sum(i.values["amount"] for i in items) - target) <= Decimal("0.02")
 
     if fits(rules_items) and not fits(llm_items):
@@ -156,6 +164,7 @@ def derive(v: dict[str, Any], items: list[Item]) -> dict[str, tuple[Any, list[st
 # ---------------------------------------------------------------- helpers
 
 def _jsonable(x: Any) -> Any:
+    """Convert Decimal, date and Enum values into JSON-friendly types."""
     if isinstance(x, Decimal):
         return float(x)
     if isinstance(x, date):
@@ -166,22 +175,36 @@ def _jsonable(x: Any) -> Any:
 
 
 def _checks_for(checks: list[Check], name: str) -> tuple[int, int, int]:
+    """Count passed, failed and warning checks that involve the given field."""
     passed = sum(1 for c in checks if c.arithmetic and c.passed and name in c.fields)
     failed = sum(1 for c in checks if c.arithmetic and not c.passed and name in c.fields)
     warned = sum(1 for c in checks if not c.arithmetic and not c.passed and name in c.fields)
     return passed, failed, warned
 
 
-def _llm_enabled(use_llm: bool | None, client: Any) -> bool:
-    if use_llm is not None:
-        return use_llm
-    return client is not None or bool(os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"))
+def pick_provider(provider: str, use_llm: bool | None, client: Any) -> str | None:
+    """Which LLM to use: "claude", "gemini", or None (rules only).
+
+    ``auto`` prefers Claude when an Anthropic credential is present, then Gemini.
+    """
+    if use_llm is False:
+        return None
+    if provider in ("claude", "gemini"):
+        return provider
+    if os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"):
+        return "claude"
+    if gemini_extractor.api_key():
+        return "gemini"
+    if use_llm or client is not None:
+        return "claude"
+    return None
 
 
 # ---------------------------------------------------------------- main entry
 
 def run(path: str | Path, use_llm: bool | None = None, client: Any = None,
-        model: str = llm_extractor.DEFAULT_MODEL, today: date | None = None) -> ExtractionResult:
+        model: str | None = None, today: date | None = None, provider: str = "auto") -> ExtractionResult:
+    """Run the full pipeline on one document and return the scored, validated result."""
     t0 = time.time()
     doc = ingest.load(path)
     meta: dict[str, Any] = {"input_kind": doc.kind, "pages": doc.pages, "text_quality": doc.quality,
@@ -189,8 +212,13 @@ def run(path: str | Path, use_llm: bool | None = None, client: Any = None,
 
     r_out = rules_extractor.extract(doc)
     l_out: ExtractorOutput | None = None
-    if _llm_enabled(use_llm, client):
-        l_out = llm_extractor.extract(doc, client=client, model=model)
+    chosen = pick_provider(provider, use_llm, client)
+    if chosen is not None:
+        meta["llm_provider"] = chosen
+        if chosen == "gemini":
+            l_out = gemini_extractor.extract(doc, client=client, model=model or gemini_extractor.DEFAULT_MODEL)
+        else:
+            l_out = llm_extractor.extract(doc, client=client, model=model or llm_extractor.DEFAULT_MODEL)
         if l_out.error:
             meta["llm_error"] = l_out.error
             l_out = None
@@ -211,6 +239,7 @@ def run(path: str | Path, use_llm: bool | None = None, client: Any = None,
     items, alt_items = choose_items(r_items, l_items, values)
 
     def checks_for(vals: dict, its: list[Item]) -> list[Check]:
+        """Run the validation checks for a given set of field values and line items."""
         return run_checks(vals, [i.values for i in its], today)
 
     checks = checks_for(values, items)

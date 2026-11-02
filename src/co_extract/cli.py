@@ -4,30 +4,45 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
-from .extractors.llm import DEFAULT_MODEL
 from .pipeline import run
 
 SUPPORTED = {".pdf", ".txt", ".md", ".eml"}
 
 
 def _inputs(paths: list[str]) -> list[Path]:
+    """Expand the given files and directories into a list of supported input files."""
     out: list[Path] = []
     for p in map(Path, paths):
         out.extend(sorted(f for f in p.iterdir() if f.suffix.lower() in SUPPORTED) if p.is_dir() else [p])
     return out
 
 
+def _load_dotenv(path: Path = Path(".env")) -> None:
+    """Read KEY=value lines from ./.env (git-ignored) without overriding the real environment."""
+    if not path.is_file():
+        return
+    for line in path.read_text().splitlines():
+        key, sep, value = line.strip().partition("=")
+        if sep and key and not key.startswith("#"):
+            os.environ.setdefault(key.removeprefix("export ").strip(), value.strip().strip("'\""))
+
+
 def main(argv: list[str] | None = None) -> int:
+    """Entry point for the co-extract command: parse arguments, run the pipeline, print or save JSON."""
+    _load_dotenv()
     ap = argparse.ArgumentParser(prog="co-extract", description=__doc__)
     ap.add_argument("inputs", nargs="+", help="PDF/text files or directories")
     ap.add_argument("-o", "--out", help="directory to write <name>.json results (default: stdout)")
     llm = ap.add_mutually_exclusive_group()
-    llm.add_argument("--llm", dest="use_llm", action="store_true", default=None, help="force the Claude extractor on")
+    llm.add_argument("--llm", dest="use_llm", action="store_true", default=None, help="force the LLM extractor on")
     llm.add_argument("--no-llm", dest="use_llm", action="store_false", help="rules extractor only (offline)")
-    ap.add_argument("--model", default=DEFAULT_MODEL)
+    ap.add_argument("--provider", choices=["auto", "claude", "gemini"], default="auto",
+                    help="LLM to use; auto picks Claude if ANTHROPIC_API_KEY is set, else Gemini if GEMINI_API_KEY is set")
+    ap.add_argument("--model", help="override the provider's default model")
     ap.add_argument("--summary", action="store_true", help="print a one-line summary per document to stderr")
     args = ap.parse_args(argv)
 
@@ -36,7 +51,9 @@ def main(argv: list[str] | None = None) -> int:
         out_dir.mkdir(parents=True, exist_ok=True)
     results = []
     for path in _inputs(args.inputs):
-        res = run(path, use_llm=args.use_llm, model=args.model)
+        res = run(path, use_llm=args.use_llm, model=args.model, provider=args.provider)
+        if res.meta.get("llm_error"):
+            print(f"  ! {res.meta['llm_provider']} failed, used rules only: {res.meta['llm_error']}", file=sys.stderr)
         data = res.model_dump(mode="json")
         if out_dir:
             (out_dir / f"{path.stem}.json").write_text(json.dumps(data, indent=2) + "\n")

@@ -34,9 +34,10 @@ uv sync
 # Offline: rules extractor only, no API key needed
 uv run co-extract samples/co_001_formal.pdf --no-llm
 
-# With Claude as the primary extractor
-export ANTHROPIC_API_KEY=sk-ant-...
+# With an LLM as the primary extractor -- Claude or Gemini (Gemini has a free tier)
+echo 'GEMINI_API_KEY=your-key' >> .env        # or ANTHROPIC_API_KEY=sk-ant-...; .env is git-ignored
 uv run co-extract samples/co_002_email.txt
+uv run co-extract samples/co_002_email.txt --provider gemini --model gemini-3.8-flash
 
 # A whole folder, one JSON file per document, with a summary line each
 uv run co-extract samples/ -o out/ --summary
@@ -45,10 +46,13 @@ uv run co-extract samples/ -o out/ --summary
 uv run pytest
 uv run python eval/evaluate.py                  # dev set, rules only
 uv run python eval/evaluate.py --set holdout    # held-out set
-uv run python eval/evaluate.py --llm            # with Claude (needs a key)
+uv run python eval/evaluate.py --llm            # with the LLM (needs a key)
+uv run python eval/evaluate.py --llm --provider gemini
 ```
 
-The Claude extractor turns on automatically when `ANTHROPIC_API_KEY` is set. `--no-llm` forces it off and `--llm` forces it on. The model defaults to `claude-opus-5-5`; override it with `--model` or `CO_EXTRACT_MODEL`.
+The LLM extractor turns on automatically when a key is found in the environment or in `./.env`. With `--provider auto` (the default) it uses Claude if `ANTHROPIC_API_KEY` is set, otherwise Gemini if `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) is set. `--no-llm` forces rules-only. Default models are `claude-opus-5-5` (override with `CO_EXTRACT_MODEL`) and `gemini-3.8-flash` (override with `GEMINI_MODEL`); `--model` overrides either. Both providers use the same prompt, JSON schema and verbatim-quote contract, so everything downstream treats them identically.
+
+> **Note:** on Google's free tier, prompts may be used to improve Google's products. Don't send confidential change orders through a free-tier key.
 
 From Python:
 
@@ -122,7 +126,7 @@ flowchart LR
 | stage | module | what it does |
 |---|---|---|
 | ingest | [ingest.py](src/co_extract/ingest.py) | Reads text and PDFs (pdfplumber, layout-preserving). Detects image-only PDFs. Scores text quality from odd characters and letter/digit soup like `1O,5OO`, which caps every confidence downstream. |
-| extract | [extractors/llm.py](src/co_extract/extractors/llm.py) | Claude with a JSON schema. Each field returns `{value, evidence, certainty}`, with the value copied as written and the evidence a verbatim quote. Instructed not to do arithmetic or fill gaps. Scanned PDFs are sent as `document` blocks so Claude reads them visually. Uses server-side refusal fallback. |
+| extract | [extractors/llm.py](src/co_extract/extractors/llm.py), [extractors/gemini.py](src/co_extract/extractors/gemini.py) | Claude or Gemini with a JSON schema. Each field returns `{value, evidence, certainty}`, with the value copied as written and the evidence a verbatim quote. Instructed not to do arithmetic or fill gaps. Scanned PDFs are sent as `document` blocks so Claude reads them visually. Uses server-side refusal fallback. |
 | extract | [extractors/rules.py](src/co_extract/extractors/rules.py) | Label-driven regexes for three layouts (`Label: value`, label above value, column-header rows), table rows, AIA prose ("Contract Sum will be increased by…"), and `3 @ $425 = $1,275` email lines. OCR-tolerant label matching (`0wner` → owner). |
 | normalize | [normalize.py](src/co_extract/normalize.py) | Both extractors return strings, and both are parsed by the *same* code: money (`(4,200.00)`, `USD 1,240`, `1.234,56`, OCR'd `6,4OO,OOO.OO`), dates, schedule days (`three (3) calendar days`, `2 weeks`, `no impact`), and the reason/status enums. Every lossy repair is flagged. |
 | reconcile | [pipeline.py](src/co_extract/pipeline.py) | Merges the two candidates per field. Keeps the losing candidate as an alternative. |
@@ -231,7 +235,8 @@ src/co_extract/
   schema.py          ChangeOrder + output envelope (Pydantic)
   ingest.py          PDF/text loading, scanned-PDF detection, text quality
   extractors/
-    llm.py           Claude structured-output extractor
+    llm.py           Claude structured-output extractor (shared prompt + schema)
+    gemini.py        Gemini extractor, same contract
     rules.py         deterministic label/table extractor
     base.py          Candidate types shared by extractors
   normalize.py       string -> typed value parsing, OCR repair
@@ -243,7 +248,7 @@ src/co_extract/
 samples/             synthetic inputs + expected/ ground truth (+ holdout/)
 examples/output/     pipeline output for every sample (offline)
 eval/                evaluator + results
-tests/               29 tests incl. mocked-LLM pipeline tests
+tests/               36 tests incl. mocked Claude and Gemini pipeline tests
 docs/WRITEUP.md      approach and failure modes
 ```
 

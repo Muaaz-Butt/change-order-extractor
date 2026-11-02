@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
 from co_extract import run  # noqa: E402
+from co_extract.cli import _load_dotenv  # noqa: E402
 from co_extract.pipeline import REVIEW_THRESHOLD  # noqa: E402
 from co_extract.schema import SCALAR_FIELDS  # noqa: E402
 
@@ -29,16 +30,19 @@ BUCKETS = [(0.0, 0.5), (0.5, 0.8), (0.8, 0.95), (0.95, 1.01)]
 
 
 def canon_id(s: str) -> str:
+    """Reduce a change-order number to a comparable form (drops CO/PCO/COR prefixes and leading zeros)."""
     s = re.sub(r"[^A-Z0-9]", "", str(s).upper())
     s = re.sub(r"^(PCO|COR|CO)(?=\d)", "", s)
     return s.lstrip("0") or "0"
 
 
 def _words(s: str) -> set[str]:
+    """Return the set of lowercase words in a string, for fuzzy text comparison."""
     return set(re.findall(r"[a-z0-9]+", s.lower()))
 
 
 def match(field: str, kind: str, pred, gold) -> bool:
+    """Return True if a predicted value counts as equal to the gold value for this field type."""
     if pred is None or gold is None:
         return pred is None and gold is None
     if kind in ("money", "number"):
@@ -54,14 +58,19 @@ def match(field: str, kind: str, pred, gold) -> bool:
     return pred == gold
 
 
-def evaluate(use_llm: bool, sample_dir: Path = ROOT / "samples") -> str:
+def evaluate(use_llm: bool, sample_dir: Path = ROOT / "samples", provider: str = "auto") -> str:
+    """Run the pipeline on every sample with ground truth and return a Markdown metrics report."""
     rows, obs = [], []  # obs: (confidence, correct) for every predicted non-null field
     tot = {"gold": 0, "correct": 0, "pred": 0, "pred_correct": 0, "halluc": 0, "items_gold": 0, "items_found": 0}
     wrong_flagged = wrong_total = 0
+    llm_failed: list[str] = []
     for gold_path in sorted((sample_dir / "expected").glob("*.json")):
         gold = json.loads(gold_path.read_text())
         src = next(p for p in sample_dir.iterdir() if p.stem == gold_path.stem and p.is_file())
-        res = run(src, use_llm=use_llm)
+        res = run(src, use_llm=use_llm, provider=provider)
+        if res.meta.get("llm_error"):
+            llm_failed.append(src.name)
+            print(f"warning: {src.name}: LLM failed, rules only: {res.meta['llm_error']}", file=sys.stderr)
         d = {"gold": 0, "correct": 0, "halluc": 0, "wrong": []}
         for f, kind in SCALAR_FIELDS.items():
             fr = res.fields[f]
@@ -94,8 +103,12 @@ def evaluate(use_llm: bool, sample_dir: Path = ROOT / "samples") -> str:
         tot["halluc"] += d["halluc"]
         rows.append((src.name, res.status, res.overall_confidence, d, found, len(gold_amounts), len(pred_amounts)))
 
-    mode = "rules + LLM" if use_llm else "rules only (offline)"
-    out = [f"# Evaluation: {mode} -- {sample_dir.relative_to(ROOT)}", "", f"{len(rows)} documents, {tot['gold']} gold fields, {tot['items_gold']} gold line items.", "",
+    mode = f"rules + LLM ({provider})" if use_llm else "rules only (offline)"
+    out = [f"# Evaluation: {mode} -- {sample_dir.relative_to(ROOT)}", ""]
+    if use_llm:
+        out += [f"LLM calls that failed and fell back to rules only: **{len(llm_failed)}/{len(rows)}**"
+                + (f" ({', '.join(llm_failed)})" if llm_failed else ""), ""]
+    out += [ f"{len(rows)} documents, {tot['gold']} gold fields, {tot['items_gold']} gold line items.", "",
            "| document | status | overall | fields correct | hallucinated | line items found |",
            "|---|---|---|---|---|---|"]
     for name, status, overall, d, found, n_gold, n_pred in rows:
@@ -129,12 +142,14 @@ def evaluate(use_llm: bool, sample_dir: Path = ROOT / "samples") -> str:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--llm", action="store_true", help="enable the Claude extractor")
+    ap.add_argument("--llm", action="store_true", help="enable the LLM extractor")
+    ap.add_argument("--provider", choices=["auto", "claude", "gemini"], default="auto")
     ap.add_argument("--set", choices=["dev", "holdout"], default="dev",
                     help="dev = samples the rules were developed on; holdout = unseen during development")
     ap.add_argument("--write", action="store_true", help="also write eval/results_<set>_<mode>.md")
     a = ap.parse_args()
-    report = evaluate(a.llm, ROOT / "samples" / ("holdout" if a.set == "holdout" else ""))
+    _load_dotenv(ROOT / ".env")
+    report = evaluate(a.llm, ROOT / "samples" / ("holdout" if a.set == "holdout" else ""), a.provider)
     print(report)
     if a.write:
-        (ROOT / "eval" / f"results_{a.set}_{'llm' if a.llm else 'rules'}.md").write_text(report + "\n")
+        (ROOT / "eval" / f"results_{a.set}_{a.provider if a.llm else 'rules'}.md").write_text(report + "\n")

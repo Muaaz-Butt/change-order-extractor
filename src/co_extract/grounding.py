@@ -7,6 +7,7 @@ from difflib import SequenceMatcher
 
 
 def _norm(s: str) -> str:
+    """Lowercase and collapse whitespace so quotes can be compared to the document text."""
     return re.sub(r"\s+", " ", s).strip().lower()
 
 
@@ -23,10 +24,12 @@ def ground(evidence: str | None, text: str) -> float:
 
 
 def _digits(s: str) -> str:
+    """Keep only the digits of a string."""
     return re.sub(r"[^\d]", "", s)
 
 
 def value_in_evidence(raw: str | None, evidence: str | None, kind: str) -> bool:
+    """Return True if the extracted value actually appears inside its own evidence quote."""
     if raw is None or evidence is None:
         return False
     if kind in ("money", "number"):

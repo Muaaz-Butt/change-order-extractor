@@ -25,6 +25,7 @@ class Check:
 
 
 def close(a: Decimal, b: Decimal) -> bool:
+    """Return True if two amounts are equal within rounding tolerance."""
     tol = max(Decimal("0.02"), abs(b) * Decimal("0.001"))
     return abs(a - b) <= tol
 
@@ -96,4 +97,5 @@ def run_checks(v: dict, items: list[dict], today: date | None = None) -> list[Ch
 
 
 def arithmetic_score(checks: list[Check]) -> int:
+    """Score a set of checks: +1 per passing arithmetic check, -1 per failure."""
     return sum(1 if c.passed else -1 for c in checks if c.arithmetic)

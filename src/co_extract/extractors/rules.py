@@ -60,18 +60,21 @@ SUMMARY_WORDS = re.compile(
 
 
 def _line_of(text: str, pos: int) -> str:
+    """Return the full line of text that contains the given position."""
     start = text.rfind("\n", 0, pos) + 1
     end = text.find("\n", pos)
     return text[start: end if end != -1 else len(text)].strip()
 
 
 def _line_bounds(text: str, pos: int) -> tuple[int, int]:
+    """Return the start and end offsets of the line that contains the given position."""
     start = text.rfind("\n", 0, pos) + 1
     end = text.find("\n", pos)
     return start, (len(text) if end == -1 else end)
 
 
 def _cells(line: str) -> list[str]:
+    """Split a line into table cells separated by three or more spaces."""
     return [c for c in re.split(r"\s{3,}", line.strip()) if c]
 
 
@@ -168,6 +171,7 @@ def _sentence_patterns(text: str, out: dict[str, Candidate]) -> None:
 
 
 def _status(search: str, text: str, out: dict[str, Candidate]) -> None:
+    """Find approval-status wording or stamps (APPROVED, pending approval, ...) if not already found."""
     if "status" in out:
         return
     m = (re.search(r"(?i)\b(?:awaiting|pending)\b[^.\n]{0,40}\b(?:approval|sign-?off|signature)", search)
@@ -185,6 +189,7 @@ ROW_AT = re.compile(
 
 
 def _line_items(text: str) -> list[RawLineItem]:
+    """Find priced rows in the line-item table, stopping at the subtotal/total rows."""
     lines = text.split("\n")
     header = next((i for i, l in enumerate(lines)
                    if re.search(r"description|item", l, re.I) and re.search(r"amount|cost|total|price", l, re.I)), None)
@@ -220,6 +225,7 @@ def _ocr_label_text(text: str) -> str:
 
 
 def extract(doc: Document) -> ExtractorOutput:
+    """Extract change-order fields with labels and regexes only (works offline)."""
     text = doc.text
     search = _ocr_label_text(text)
     out: dict[str, Candidate] = {}

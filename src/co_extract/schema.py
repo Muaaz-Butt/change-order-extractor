@@ -45,6 +45,7 @@ class LineItem(BaseModel):
 
     @field_serializer("quantity", "unit_price", "amount")
     def _num(self, v: Decimal | None) -> float | None:
+        """Serialize a Decimal as a float for JSON output."""
         return None if v is None else float(v)
 
 
@@ -79,6 +80,7 @@ class ChangeOrder(BaseModel):
         "prior_change_orders_total", "contract_sum_before", "new_contract_sum",
     )
     def _money(self, v: Decimal | None) -> float | None:
+        """Serialize a money Decimal as a float for JSON output."""
         return None if v is None else float(v)
 
 

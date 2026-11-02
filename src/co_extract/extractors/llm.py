@@ -85,6 +85,7 @@ Rules:
 
 
 def _content(doc: Document) -> list[dict]:
+    """Build the Claude message content: a PDF document block for scans, otherwise the document text."""
     if doc.kind == "pdf_scanned" and doc.pdf_bytes:
         return [
             {"type": "document", "source": {"type": "base64", "media_type": "application/pdf",
@@ -95,6 +96,7 @@ def _content(doc: Document) -> list[dict]:
 
 
 def extract(doc: Document, client=None, model: str = DEFAULT_MODEL, effort: str = "medium") -> ExtractorOutput:
+    """Extract change-order fields with Claude using JSON-schema structured output."""
     import anthropic
 
     client = client or anthropic.Anthropic()
@@ -123,12 +125,13 @@ def extract(doc: Document, client=None, model: str = DEFAULT_MODEL, effort: str 
     text = next((b.text for b in response.content if b.type == "text"), None)
     if text is None:
         return ExtractorOutput(source=SOURCE, error="no text block in response")
-    usage = {"model": response.model, "input_tokens": response.usage.input_tokens,
+    usage = {"provider": "claude", "model": response.model, "input_tokens": response.usage.input_tokens,
              "output_tokens": response.usage.output_tokens}
     return parse_output(json.loads(text), usage)
 
 
 def parse_output(data: dict, usage: dict | None = None) -> ExtractorOutput:
+    """Turn the LLM's JSON response into extractor candidates and raw line items."""
     out = ExtractorOutput(source=SOURCE, usage=usage)
     for name, f in (data.get("fields") or {}).items():
         if name in SCALAR_FIELDS and f and f.get("value") not in (None, ""):

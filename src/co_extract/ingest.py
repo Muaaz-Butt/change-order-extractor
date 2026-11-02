@@ -46,6 +46,7 @@ def text_quality(text: str) -> tuple[float, list[str]]:
 
 
 def load(path: str | Path) -> Document:
+    """Load a PDF or text file into a Document with its text, kind and quality score."""
     p = Path(path)
     if p.suffix.lower() == ".pdf":
         return _load_pdf(p)
@@ -57,6 +58,7 @@ def load(path: str | Path) -> Document:
 
 
 def _load_pdf(p: Path) -> Document:
+    """Extract the text layer of a PDF and detect scanned (image-only) PDFs."""
     import pdfplumber
 
     raw = p.read_bytes()
