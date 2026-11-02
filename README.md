@@ -252,7 +252,7 @@ Live results (full reports: [dev Gemini](eval/results_dev_gemini.md), [held-out 
 |---|---|---|---|---|---|---|
 | dev (8 docs) | rules only | 87.1% | 100% | 0 | 90% | 0.154 |
 | dev (8 docs) | **Gemini + rules** | **98.0%** | **98.0%** | **0** | **100%** | **0.075** |
-| held-out (2 docs, never tuned on) | rules only | 65.2% | 88.2% | 0 | 0% | n/a |
+| held-out (2 docs, never tuned on) | rules only | 65.2% | 88.2% | 0 | 0% | 0.140 |
 | held-out (2 docs, never tuned on) | **Gemini + rules** | **91.3%** | **95.5%** | **0** | **100%** | 0.123 |
 
 How to read this: the rules were written while looking at the dev documents, so the dev rules numbers are optimistic. On unseen formats (a letter with `USD` amounts, a markdown pipe table), the rules extractor alone misses a lot, which is why it is the *corroborator* and not the primary extractor. With Gemini, held-out recall rises from 65% to 91% and every line item is found. Nothing was invented in any run, and all 10 Gemini calls succeeded (the eval reports how many fell back to rules only).

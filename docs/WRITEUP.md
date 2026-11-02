@@ -31,7 +31,7 @@ The eval script reports calibration as well as accuracy. All numbers below are f
 |---|---|---|---|---|---|---|
 | dev (8 docs, rules developed on these) | rules only | 87.1% | 100% | 0 | 90% | 0.154 |
 | dev | **Gemini + rules** | **98.0%** | **98.0%** | **0** | **100%** | **0.075** |
-| **held-out** (2 docs, never tuned on) | rules only | 65.2% | 88.2% | 0 | 0% | n/a |
+| **held-out** (2 docs, never tuned on) | rules only | 65.2% | 88.2% | 0 | 0% | 0.140 |
 | **held-out** | **Gemini + rules** | **91.3%** | **95.5%** | **0** | **100%** | 0.123 |
 
 Full reports: [dev, Gemini](../eval/results_dev_gemini.md), [held-out, Gemini](../eval/results_holdout_gemini.md), [dev, rules](../eval/results_dev_rules.md), [held-out, rules](../eval/results_holdout_rules.md).
