@@ -148,31 +148,38 @@ The output for every sample is in [examples/output/](examples/output/), generate
 
 ```mermaid
 flowchart LR
-    A[PDF / text / email] --> B[ingest<br/>text layer + quality score]
-    B --> C1[rules extractor<br/>labels, tables, regex]
-    B --> C2[Claude extractor<br/>structured output<br/>value + verbatim quote]
+    A[PDF / text / email] --> B[ingest<br/>text layer + quality score<br/>detect scans]
+    B --> C1[rules extractor<br/>labels, tables, regex<br/>always runs, offline]
+    B --> C2[LLM extractor, optional<br/>Gemini or Claude<br/>value + verbatim quote]
+    C2 -. error or no key .-> X[rules only]
     C1 --> D[normalize<br/>money, dates, days,<br/>OCR repair, enums]
     C2 --> D
-    D --> E[reconcile<br/>agree / disagree]
+    D --> E[reconcile fields<br/>agree / disagree<br/>+ pick line-item set]
     E --> F[validate<br/>accounting cross-checks]
-    F -->|disagreement| G[arithmetic arbitration]
+    F -->|disagreement on money<br/>or line items| G[arithmetic arbitration]
     G --> F
     F --> H[derive missing<br/>totals from arithmetic]
-    H --> I[confidence<br/>log-odds per field]
-    I --> J[route<br/>auto_accept / needs_review / failed]
+    H --> I[confidence per field<br/>log-odds: grounding, agreement,<br/>checks, parse flags]
+    I --> K[schema check<br/>Pydantic ChangeOrder]
+    K --> J[route<br/>auto_accept / needs_review / failed]
 ```
+
+[pipeline.py](src/co_extract/pipeline.py) runs these steps in order in `run()`. The command-line entry point is [cli.py](src/co_extract/cli.py) (`co-extract`).
 
 | stage | module | what it does |
 |---|---|---|
 | ingest | [ingest.py](src/co_extract/ingest.py) | Reads text and PDFs (pdfplumber, layout-preserving). Detects image-only PDFs. Scores text quality from odd characters and letter/digit soup like `1O,5OO`, which caps every confidence downstream. |
-| extract | [extractors/llm.py](src/co_extract/extractors/llm.py), [extractors/gemini.py](src/co_extract/extractors/gemini.py) | Claude or Gemini with a JSON schema. Each field returns `{value, evidence, certainty}`, with the value copied as written and the evidence a verbatim quote. Instructed not to do arithmetic or fill gaps. Scanned PDFs are sent as `document` blocks so Claude reads them visually. Uses server-side refusal fallback. |
-| extract | [extractors/rules.py](src/co_extract/extractors/rules.py) | Label-driven regexes for three layouts (`Label: value`, label above value, column-header rows), table rows, AIA prose ("Contract Sum will be increased by…"), and `3 @ $425 = $1,275` email lines. OCR-tolerant label matching (`0wner` → owner). |
+| extract (LLM) | [extractors/gemini.py](src/co_extract/extractors/gemini.py), [extractors/llm.py](src/co_extract/extractors/llm.py) | Gemini (`gemini-3.6-flash`) or Claude (`claude-opus-5-5`), chosen by `--provider` or by which key is set. Both share one prompt and JSON schema (in `llm.py`). Each field returns `{value, evidence, certainty}`, with the value copied as written and the evidence a verbatim quote. The model is told not to do arithmetic or fill gaps. Scanned PDFs are sent as the PDF itself (Gemini: inline PDF bytes; Claude: a `document` block) so the model reads them visually. Gemini: 60 s timeout, 3 retries on busy responses. Claude: server-side refusal fallback. Any failure leaves the rules result, with the error in `meta.llm_error`. |
+| extract (rules) | [extractors/rules.py](src/co_extract/extractors/rules.py) | Always runs. Label-driven regexes for three layouts (`Label: value`, label above value, column-header rows), table rows, AIA prose ("Contract Sum will be increased by…"), and `3 @ $425 = $1,275` email lines. OCR-tolerant label matching (`0wner` → owner). |
 | normalize | [normalize.py](src/co_extract/normalize.py) | Both extractors return strings, and both are parsed by the *same* code: money (`(4,200.00)`, `USD 1,240`, `1.234,56`, OCR'd `6,4OO,OOO.OO`), dates, schedule days (`three (3) calendar days`, `2 weeks`, `no impact`), and the reason/status enums. Every lossy repair is flagged. |
-| reconcile | [pipeline.py](src/co_extract/pipeline.py) | Merges the two candidates per field. Keeps the losing candidate as an alternative. |
+| reconcile | [pipeline.py](src/co_extract/pipeline.py) | Merges the two candidates per field: on agreement, keeps the LLM's value. On disagreement, keeps the more certain, better-grounded one and saves the other as an alternative. For line items, keeps the LLM's set unless only the rules set adds up to the subtotal (or to the total when there is no markup or tax). |
+| ground | [grounding.py](src/co_extract/grounding.py) | Is the quote in the document? Is the value in its own quote? Used to break ties in reconcile and as a confidence signal. Skipped for scans, which have no text to check against. |
 | validate | [validate.py](src/co_extract/validate.py) | Accounting identities and sanity checks (see below). |
-| arbitrate | [pipeline.py](src/co_extract/pipeline.py) | Where extractors disagree on an amount, keeps whichever value makes more checks pass. The same applies to the two line-item sets. |
+| arbitrate | [pipeline.py](src/co_extract/pipeline.py) | Where extractors disagree on an amount, tries the alternative value and keeps it if more checks pass. The same applies to the two line-item sets. |
+| derive | [pipeline.py](src/co_extract/pipeline.py) | Fills a missing total or contract sum from the other numbers. Derived values are marked `derived`, score 0.85 × their weakest input, and are not fed back into the checks. |
 | score | [confidence.py](src/co_extract/confidence.py) | An additive log-odds model, one human-readable reason per term. |
-| ground | [grounding.py](src/co_extract/grounding.py) | Is the quote in the document? Is the value in the quote? |
+| schema | [schema.py](src/co_extract/schema.py) | The field list and the Pydantic `ChangeOrder` model. A result that fails it, or lacks a required field, is `failed`. |
+| route | [pipeline.py](src/co_extract/pipeline.py) | `auto_accept`, `needs_review` (listing the fields to check) or `failed`; see the rules under [How confidence is computed](#how-confidence-is-computed). |
 
 ## Schema
 
