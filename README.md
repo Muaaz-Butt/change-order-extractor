@@ -11,6 +11,7 @@ Turns messy construction change orders (formal PDFs, emails, OCR'd scans, field 
 ## Contents
 
 - [Quick start](#quick-start)
+- [Setting up an API key](#setting-up-an-api-key)
 - [What it produces](#what-it-produces)
 - [Architecture](#architecture)
 - [Schema](#schema)
@@ -34,8 +35,7 @@ uv sync
 # Offline: rules extractor only, no API key needed
 uv run co-extract samples/co_001_formal.pdf --no-llm
 
-# With an LLM as the primary extractor -- Claude or Gemini (Gemini has a free tier)
-echo 'GEMINI_API_KEY=your-key' >> .env        # or ANTHROPIC_API_KEY=sk-ant-...; .env is git-ignored
+# With an LLM as the primary extractor -- first add a key (see "Setting up an API key" below)
 uv run co-extract samples/co_002_email.txt
 uv run co-extract samples/co_002_email.txt --provider gemini --model gemini-3.6-flash
 
@@ -55,6 +55,43 @@ The LLM extractor turns on automatically when a key is found in the environment 
 Gemini calls time out after 60 s (`GEMINI_TIMEOUT_MS`), and busy (429/5xx) responses are retried 3 times with backoff, with progress printed to stderr. If the model is still unavailable, the document falls back to the rules extractor and the output's `meta.llm_error` says so. By default one model reads every document, so results are consistent. To try other models when it is overloaded, set e.g. `GEMINI_FALLBACK_MODELS=gemini-3.7-flash`.
 
 > **Note:** on Google's free tier, prompts may be used to improve Google's products. Don't send confidential change orders through a free-tier key.
+
+## Setting up an API key
+
+The pipeline runs offline without a key (rules extractor only). For the full results, add a key for **one** LLM provider.
+
+**1. Get a key**
+
+| provider | where to get a key | cost |
+|---|---|---|
+| Gemini | [Google AI Studio](https://aistudio.google.com/apikey): sign in, click **Create API key** | free tier available |
+| Claude | [Anthropic Console](https://console.anthropic.com/settings/keys): **Create Key** | paid |
+
+**2. Put it in a `.env` file** in the project root:
+
+```bash
+cp .env.example .env
+```
+
+Open `.env` and paste your key after the `=`, with no quotes or spaces:
+
+```
+GEMINI_API_KEY=your-gemini-key
+# or, for Claude:
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+`.env` is listed in `.gitignore`, so the key is never committed. Never put a key in any other file.
+
+**3. Check that it works**
+
+```bash
+uv run co-extract samples/co_002_email.txt --summary
+```
+
+The summary line should end with `extractors=rules+llm`. If it says `extractors=rules` and prints `! provider failed`, the message says why (for example, an invalid key or a busy model).
+
+**Alternative:** instead of `.env`, export the key in your shell, e.g. `export GEMINI_API_KEY=...`. A variable set in the shell takes precedence over `.env`.
 
 From Python:
 
