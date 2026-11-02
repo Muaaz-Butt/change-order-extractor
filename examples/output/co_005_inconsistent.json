@@ -517,7 +517,7 @@
     "extractors": [
       "rules"
     ],
-    "elapsed_s": 0.001,
+    "elapsed_s": 0.002,
     "checks_passed": [
       "subtotal_plus_markup_tax_equals_total",
       "date_issued_plausible",

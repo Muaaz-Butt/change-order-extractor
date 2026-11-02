@@ -37,7 +37,7 @@ uv run co-extract samples/co_001_formal.pdf --no-llm
 # With an LLM as the primary extractor -- Claude or Gemini (Gemini has a free tier)
 echo 'GEMINI_API_KEY=your-key' >> .env        # or ANTHROPIC_API_KEY=sk-ant-...; .env is git-ignored
 uv run co-extract samples/co_002_email.txt
-uv run co-extract samples/co_002_email.txt --provider gemini --model gemini-3.8-flash
+uv run co-extract samples/co_002_email.txt --provider gemini --model gemini-3.6-flash
 
 # A whole folder, one JSON file per document, with a summary line each
 uv run co-extract samples/ -o out/ --summary
@@ -50,7 +50,9 @@ uv run python eval/evaluate.py --llm            # with the LLM (needs a key)
 uv run python eval/evaluate.py --llm --provider gemini
 ```
 
-The LLM extractor turns on automatically when a key is found in the environment or in `./.env`. With `--provider auto` (the default) it uses Claude if `ANTHROPIC_API_KEY` is set, otherwise Gemini if `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) is set. `--no-llm` forces rules-only. Default models are `claude-opus-5-5` (override with `CO_EXTRACT_MODEL`) and `gemini-3.8-flash` (override with `GEMINI_MODEL`); `--model` overrides either. Both providers use the same prompt, JSON schema and verbatim-quote contract, so everything downstream treats them identically.
+The LLM extractor turns on automatically when a key is found in the environment or in `./.env`. With `--provider auto` (the default) it uses Claude if `ANTHROPIC_API_KEY` is set, otherwise Gemini if `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) is set. `--no-llm` forces rules-only. Default models are `claude-opus-5-5` (override with `CO_EXTRACT_MODEL`) and `gemini-3.6-flash` (override with `GEMINI_MODEL`); `--model` overrides either. Both providers use the same prompt, JSON schema and verbatim-quote contract, so everything downstream treats them identically.
+
+Gemini calls time out after 60 s (`GEMINI_TIMEOUT_MS`), and busy (429/5xx) responses are retried 3 times with backoff, with progress printed to stderr. If the model is still unavailable, the document falls back to the rules extractor and the output's `meta.llm_error` says so. By default one model reads every document, so results are consistent. To try other models when it is overloaded, set e.g. `GEMINI_FALLBACK_MODELS=gemini-3.7-flash`.
 
 > **Note:** on Google's free tier, prompts may be used to improve Google's products. Don't send confidential change orders through a free-tier key.
 
@@ -179,7 +181,7 @@ The result is passed through a sigmoid, multiplied by `0.6 + 0.4 × text_quality
 
 Log-odds keep each signal independent and explainable, and they are exactly the form logistic regression fits. The hand-set weights can therefore be replaced by learned ones once there are labelled documents, with no change in structure.
 
-**Routing:** `auto_accept` requires all required and money fields ≥ 0.80, no arithmetic errors, every line item ≥ 0.80, a valid schema, and a real text layer (scanned PDFs always go to review because their quotes can't be verified). Otherwise the result is `needs_review` with the specific fields listed, or `failed` if a required field is missing.
+**Routing:** `auto_accept` requires all required and money fields ≥ 0.80, every other extracted field ≥ 0.60, no arithmetic errors, every line item ≥ 0.80, a valid schema, and a real text layer (scanned PDFs always go to review because their quotes can't be verified). Otherwise the result is `needs_review` with the specific fields listed, or `failed` if a required field is missing.
 
 ## Validation rules
 
@@ -200,16 +202,18 @@ Tolerance is max($0.02, 0.1%).
 
 [eval/evaluate.py](eval/evaluate.py) compares output to hand-written ground truth in `samples/**/expected/`. It reports recall, precision, hallucinations, line-item recall, a **calibration table with ECE**, and what share of wrong values the review routing caught.
 
-Offline, rules only (full reports: [dev](eval/results_dev_rules.md), [holdout](eval/results_holdout_rules.md)):
+Live results (full reports: [dev Gemini](eval/results_dev_gemini.md), [held-out Gemini](eval/results_holdout_gemini.md), [dev rules](eval/results_dev_rules.md), [held-out rules](eval/results_holdout_rules.md)):
 
-| set | field recall | field precision | hallucinated | line items | wrong values sent to review |
-|---|---|---|---|---|---|
-| dev (8 docs) | 87.1% | 100% | 0 | 90% | n/a (no wrong values) |
-| **held-out (2 docs, never tuned on)** | **65.2%** | **88.2%** | **0** | **0%** | **2/2** |
+| set | mode | field recall | field precision | hallucinated | line items | ECE |
+|---|---|---|---|---|---|---|
+| dev (8 docs) | rules only | 87.1% | 100% | 0 | 90% | 0.154 |
+| dev (8 docs) | **Gemini + rules** | **98.0%** | **98.0%** | **0** | **100%** | **0.075** |
+| held-out (2 docs, never tuned on) | rules only | 65.2% | 88.2% | 0 | 0% | n/a |
+| held-out (2 docs, never tuned on) | **Gemini + rules** | **91.3%** | **95.5%** | **0** | **100%** | 0.123 |
 
-How to read this: the rules were written while looking at the dev documents, so dev numbers are optimistic. On unseen formats (a letter with `USD` amounts, a markdown pipe table), the rules extractor misses a lot. That is expected, and it is why it is the *corroborator* and not the primary extractor. It still **fails safe**: nothing is invented, confidence drops, and both wrong values end up in `needs_review`.
+How to read this: the rules were written while looking at the dev documents, so the dev rules numbers are optimistic. On unseen formats (a letter with `USD` amounts, a markdown pipe table), the rules extractor alone misses a lot, which is why it is the *corroborator* and not the primary extractor. With Gemini, held-out recall rises from 65% to 91% and every line item is found. Nothing was invented in any run, and all 10 Gemini calls succeeded (the eval reports how many fell back to rules only).
 
-> **Note:** the Claude path is fully covered by unit tests with a mocked client ([tests/test_pipeline.py](tests/test_pipeline.py)). It was **not** run against the live API while building this (no API key in that environment). Running `uv run python eval/evaluate.py --llm` is the next step and needs nothing else.
+> **Note:** the Claude path uses the same prompt, schema and downstream logic, and is covered by unit tests with a mocked client ([tests/test_pipeline.py](tests/test_pipeline.py)), but it was not run against the live API (no Anthropic key in the build environment).
 
 ## Sample corpus
 
@@ -218,11 +222,11 @@ All synthetic. PDFs are generated by [scripts/make_sample_pdfs.py](scripts/make_
 | file | what makes it messy | expected outcome |
 |---|---|---|
 | `co_001_formal.pdf` | AIA G701-style form; pdfplumber merges two columns with a single space | auto_accept |
-| `co_002_email.txt` | email thread, prices in prose, an earlier estimate to ignore, "markup ($165.50)" aside | needs_review |
+| `co_002_email.txt` | email thread, prices in prose, an earlier estimate to ignore, "markup ($165.50)" aside | auto_accept with an LLM; needs_review offline |
 | `co_003_ocr_scan.txt` | OCR damage: `0wner`, `2,1OO.OO`, `O6/O9/2025`, `APPR0VED` | needs_review |
 | `co_004_credit.pdf` | deductive change order; `(11,400.00)` credits; time *decreased* | auto_accept |
 | `co_005_inconsistent.txt` | items sum to 8,450 but the subtotal says 8,540 | needs_review, flagged |
-| `co_006_twocolumn.pdf` | labels above values in column-header rows; "2 weeks" | auto_accept |
+| `co_006_twocolumn.pdf` | labels above values in column-header rows; "2 weeks" | auto_accept with an LLM; needs_review offline (reason only guessed) |
 | `co_007_fieldnote.txt` | three-line T&M note, no total written | needs_review |
 | `co_008_scanned.pdf` | image-only PDF, no text layer | failed offline; LLM reads it visually |
 | `holdout/ho_001_letter.txt` | sub-to-GC letter, `USD` amounts, ambiguous party roles | held-out |
@@ -248,7 +252,7 @@ src/co_extract/
 samples/             synthetic inputs + expected/ ground truth (+ holdout/)
 examples/output/     pipeline output for every sample (offline)
 eval/                evaluator + results
-tests/               36 tests incl. mocked Claude and Gemini pipeline tests
+tests/               38 tests incl. mocked Claude and Gemini pipeline tests
 docs/WRITEUP.md      approach and failure modes
 ```
 

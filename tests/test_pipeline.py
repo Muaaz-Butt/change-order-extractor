@@ -83,6 +83,14 @@ def test_hallucinated_evidence_is_penalised(samples):
     assert "owner" in res.needs_review
 
 
+def test_low_confidence_optional_field_blocks_auto_accept(samples):
+    """A disputed optional field keeps an otherwise clean document out of auto-accept."""
+    client = FakeClient(llm_payload({"project_number": ("PN-9999", "Project No.: PN-9999")}))
+    res = run(samples / "co_001_formal.pdf", client=client)
+    assert res.fields["project_number"].confidence < 0.6
+    assert res.status == "needs_review"
+
+
 def test_disagreement_resolved_by_arithmetic(samples):
     # LLM misreads the subtotal; the rules value is the one that makes subtotal + O&P = total.
     """When extractors disagree, the value that makes the math work wins."""

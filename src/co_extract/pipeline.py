@@ -26,6 +26,9 @@ from .schema import (LINE_ITEM_FIELDS, REQUIRED_FIELDS, SCALAR_FIELDS, ChangeOrd
 from .validate import Check, arithmetic_score, run_checks
 
 REVIEW_THRESHOLD = 0.80
+# Any extracted value scoring below this blocks auto-accept, even on optional fields:
+# a low-confidence value that is present is more likely wrong than merely uncertain.
+LOW_CONFIDENCE_BLOCK = 0.60
 MONEY_FIELDS = [f for f, k in SCALAR_FIELDS.items() if k == "money"]
 
 
@@ -366,6 +369,7 @@ def run(path: str | Path, use_llm: bool | None = None, client: Any = None,
     elif errors or doc.kind == "pdf_scanned" or \
             any(fields[r].confidence < REVIEW_THRESHOLD for r in REQUIRED_FIELDS) or \
             any(fr.confidence < REVIEW_THRESHOLD for n, fr in present if SCALAR_FIELDS[n] == "money") or \
+            any(fr.confidence < LOW_CONFIDENCE_BLOCK for _, fr in present) or \
             any(li.confidence < REVIEW_THRESHOLD for li in line_results):
         status = "needs_review"
     else:

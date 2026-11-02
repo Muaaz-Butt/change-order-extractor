@@ -8,24 +8,32 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 import time
 
 from ..ingest import Document
 from .base import ExtractorOutput
 from .llm import OUTPUT_SCHEMA, SOURCE, SYSTEM_PROMPT, parse_output
 
-DEFAULT_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
-# Tried in order when the requested model is overloaded (503) or rate-limited (429).
-FALLBACK_MODELS = [m.strip() for m in os.environ.get("GEMINI_FALLBACK_MODELS", "gemini-3.7-flash,gemini-3.6-flash").split(",") if m.strip()]
+DEFAULT_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
+# Optional, off by default so every document is read by the same model. If set (comma-separated),
+# these are tried in order when the requested model stays overloaded (503) or rate-limited (429).
+FALLBACK_MODELS = [m.strip() for m in os.environ.get("GEMINI_FALLBACK_MODELS", "").split(",") if m.strip()]
 TRANSIENT_CODES = {429, 500, 502, 503, 504}
 ATTEMPTS_PER_MODEL = 3
 BACKOFF_S = (5, 15)  # sleep before attempt 2 and 3
+TIMEOUT_MS = int(os.environ.get("GEMINI_TIMEOUT_MS", "60000"))  # per request; a busy free tier can otherwise hang
 DECLINED = {"SAFETY", "PROHIBITED_CONTENT", "BLOCKLIST", "SPII", "RECITATION"}
 
 
 def api_key() -> str | None:
     """Return the Gemini API key from the environment, if one is set."""
     return os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+
+
+def _progress(msg: str) -> None:
+    """Print a status line to stderr so long waits on Gemini don't look like a hang."""
+    print(f"  [gemini] {msg}", file=sys.stderr, flush=True)
 
 
 def _contents(doc: Document, types) -> list:
@@ -41,7 +49,7 @@ def extract(doc: Document, client=None, model: str = DEFAULT_MODEL) -> Extractor
     from google import genai
     from google.genai import errors, types
 
-    client = client or genai.Client(api_key=api_key())
+    client = client or genai.Client(api_key=api_key(), http_options=types.HttpOptions(timeout=TIMEOUT_MS))
     config = types.GenerateContentConfig(
         system_instruction=SYSTEM_PROMPT,
         response_mime_type="application/json",
@@ -52,7 +60,9 @@ def extract(doc: Document, client=None, model: str = DEFAULT_MODEL) -> Extractor
     for m in dict.fromkeys([model, *FALLBACK_MODELS]):  # requested model first, no duplicates
         for attempt in range(ATTEMPTS_PER_MODEL):
             if attempt:
+                _progress(f"{errors_seen[-1]} -- retrying in {BACKOFF_S[attempt - 1]}s")
                 time.sleep(BACKOFF_S[attempt - 1])
+            _progress(f"calling {m} (attempt {attempt + 1}/{ATTEMPTS_PER_MODEL})...")
             try:
                 response = client.models.generate_content(model=m, contents=_contents(doc, types), config=config)
                 model = m

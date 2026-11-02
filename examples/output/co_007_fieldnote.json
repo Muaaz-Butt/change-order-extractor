@@ -366,7 +366,7 @@
     "extractors": [
       "rules"
     ],
-    "elapsed_s": 0.001,
+    "elapsed_s": 0.002,
     "checks_passed": [
       "item_extension"
     ]

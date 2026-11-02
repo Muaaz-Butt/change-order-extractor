@@ -9,7 +9,7 @@
 | co_003_ocr_scan.txt | needs_review | 0.74 | 17/17 | 0 | 3/3 (pred 3) |
 | co_004_credit.pdf | auto_accept | 0.94 | 18/18 | 0 | 2/2 (pred 2) |
 | co_005_inconsistent.txt | needs_review | 0.87 | 13/13 | 0 | 3/3 (pred 3) |
-| co_006_twocolumn.pdf | auto_accept | 0.83 | 11/11 | 0 | 3/3 (pred 3) |
+| co_006_twocolumn.pdf | needs_review | 0.83 | 11/11 | 0 | 3/3 (pred 3) |
 | co_007_fieldnote.txt | needs_review | 0.55 | 3/4 | 0 | 1/1 (pred 1) |
 | co_008_scanned.pdf | failed | 0.00 | 0/10 | 0 | 0/2 (pred 0) |
 

@@ -80,6 +80,7 @@ def test_overloaded_model_retries_then_falls_back(samples, monkeypatch):
     """An overloaded model is retried, then the next fallback model is used."""
     import co_extract.extractors.gemini as g
     monkeypatch.setattr(g.time, "sleep", lambda s: None)
+    monkeypatch.setattr(g, "FALLBACK_MODELS", ["gemini-3.7-flash"])  # fallback is opt-in
     overloaded = errors.ServerError(503, {"error": {"code": 503, "message": "high demand", "status": "UNAVAILABLE"}})
 
     class Flaky(FakeGeminiClient):
@@ -96,3 +97,17 @@ def test_overloaded_model_retries_then_falls_back(samples, monkeypatch):
     assert res.meta["llm_usage"]["model"] == "gemini-3.7-flash"
     assert res.meta["llm_usage"]["retries"] == 3
     assert "llm_error" not in res.meta
+
+
+def test_single_model_overloaded_falls_back_to_rules(samples, monkeypatch):
+    """With no fallback models (the default), a model that stays busy leaves the rules result."""
+    import co_extract.extractors.gemini as g
+    monkeypatch.setattr(g.time, "sleep", lambda s: None)
+    monkeypatch.setattr(g, "FALLBACK_MODELS", [])
+    overloaded = errors.ServerError(503, {"error": {"code": 503, "message": "high demand", "status": "UNAVAILABLE"}})
+    client = FakeGeminiClient(raises=overloaded)
+    res = run(samples / "co_001_formal.pdf", client=client, provider="gemini")
+    assert len(client.calls) == 3
+    assert res.meta["extractors"] == ["rules"]
+    assert "unavailable after retries" in res.meta["llm_error"]
+    assert res.fields["total_change_amount"].value == 5922.50

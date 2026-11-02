@@ -1,6 +1,6 @@
 {
   "document": "co_006_twocolumn.pdf",
-  "status": "auto_accept",
+  "status": "needs_review",
   "overall_confidence": 0.833,
   "fields": {
     "change_order_number": {
@@ -535,7 +535,7 @@
     "extractors": [
       "rules"
     ],
-    "elapsed_s": 0.012,
+    "elapsed_s": 0.013,
     "checks_passed": [
       "item_extension",
       "item_extension",
